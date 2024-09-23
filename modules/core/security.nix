@@ -1,6 +1,6 @@
 {...}: {
   security.rtkit.enable = true;
   security.sudo.enable = true;
-  # security.pam.services.swaylock = { };
+  security.pam.zfs.enable = true;
   security.pam.services.hyprlock = {};
 }

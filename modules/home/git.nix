@@ -1,4 +1,20 @@
-{pkgs, ...}: {
+{pkgs, ...}: let
+  gh-clone-org = pkgs.stdenv.mkDerivation {
+    pname = "gh-clone-org";
+    version = "main";
+    src = pkgs.fetchFromGitHub {
+      owner = "matt-bartel";
+      repo = "gh-clone-org";
+      rev = "master";
+      sha256 = "sha256-ViCtTH8TKU7xgq2oGhWxk0R4WRDZQZSf+yAmNo4xQv8=";
+    };
+    installPhase = ''
+      mkdir -p $out/bin
+      cp gh-clone-org $out/bin/
+      chmod +x $out/bin/gh-clone-org
+    '';
+  };
+in {
   programs.git = {
     enable = true;
 
@@ -19,6 +35,57 @@
         # side-by-side = true;
         navigate = true;
       };
+    };
+  };
+
+  programs.gh = {
+    enable = true;
+    gitCredentialHelper.enable = true;
+    extensions = with pkgs; [
+      # Add GitHub CLI extensions here
+      # Note: Limited options available by default
+      gh-eco
+      gh-copilot
+      gh-clone-org
+    ];
+    settings = {
+      # Add any custom GitHub CLI settings here
+    };
+  };
+
+  programs.gh-dash = {
+    enable = true;
+    settings = {
+      # Configure Pull Request sections and filters
+      prSections = [
+        {
+          title = "PR Created";
+          filters = "is:open author:@me";
+        }
+        {
+          title = "PR to Reviews";
+          filters = "is:open review-requested:@me";
+        }
+        {
+          title = "PR Involved";
+          filters = "is:open involves:@me -author:@me";
+        }
+      ];
+      # Configure Issue sections and filters
+      issuesSections = [
+        {
+          title = "Created";
+          filters = "is:open author:@me";
+        }
+        {
+          title = "Assigned";
+          filters = "is:open assignee:@me";
+        }
+        {
+          title = "Involved";
+          filters = "is:open involves:@me -author:@me";
+        }
+      ];
     };
   };
 

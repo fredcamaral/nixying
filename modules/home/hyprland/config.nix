@@ -7,23 +7,15 @@
         "hash dbus-update-activation-environment 2>/dev/null &"
         "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP &"
         "nm-applet &"
-        "wl-clip-persist --clipboard both"
-        "swaybg -m fill -i $(find ~/Pictures/wallpapers/ -maxdepth 1 -type f) &"
-        # "hyprctl setcursor Bibata-Modern-Ice 24 &"
+        "wl-paste -t text --watch clipman store"
         "poweralertd &"
         "waybar &"
         "swaync &"
-        "wl-paste --watch cliphist store &"
         "hyprlock"
-
-        ## App auto start
-        # "[workspace 1 silent] floorp"
-        # "[workspace 2 silent] kitty"
       ];
 
       input = {
         kb_layout = "us";
-        # kb_options = "grp:alt_caps_toggle";
         numlock_by_default = true;
         follow_mouse = 1;
         float_switch_override_focus = 0;
@@ -74,16 +66,11 @@
 
       decoration = {
         rounding = 0;
-        # active_opacity = 0.90;
-        # inactive_opacity = 0.90;
-        # fullscreen_opacity = 1.0;
 
         blur = {
           enabled = true;
           size = 2;
           passes = 2;
-          # size = 4;
-          # passes = 2;
           brightness = 1;
           contrast = 1.400;
           ignore_opacity = true;
@@ -140,9 +127,6 @@
         "$mainMod, Q, killactive,"
         "$mainMod, F, fullscreen, 0"
         "$mainMod SHIFT, F, fullscreen, 1"
-        # "$mainMod, Space, togglefloating,"
-        # "$mainMod, Space, centerwindow,"
-        # "$mainMod, Space, resizeactive, exact 950 600"
         "$mainMod, Space, exec, rofi -show drun || pkill rofi"
         "$mainMod, L, exec, hyprlock"
         "$mainMod, Escape, exec, power-menu"
@@ -216,9 +200,7 @@
         "$mainMod, mouse_up, workspace, e+1"
 
         # clipboard manager
-        "$mainMod, V, exec, cliphist list | rofi -dmenu -theme-str 'window {width: 50%;}' | cliphist decode | wl-copy"
-        "CTRL, C, exec, wl-copy"
-        "CTRL, V, exec, wl-paste"
+        "$mainMod, V, exec, clipman pick -t rofi"
       ];
 
       # binds active in lockscreen
@@ -325,15 +307,15 @@
       monitor=DP-2,2560x1440@59.95,2560x0,1
       monitor=DP-3,2560x1440@59.95,0x0,1
 
-      workspace=DP-1,1
-      workspace=DP-1,2
-      workspace=DP-1,3
-      workspace=DP-2,4
-      workspace=DP-2,5
-      workspace=DP-2,6
-      workspace=DP-3,7
-      workspace=DP-3,8
-      workspace=DP-3,9
+      workspace=1,monitor:DP-1
+      workspace=2,monitor:DP-1
+      workspace=3,monitor:DP-1
+      workspace=7,monitor:DP-2
+      workspace=8,monitor:DP-2
+      workspace=9,monitor:DP-2
+      workspace=4,monitor:DP-3
+      workspace=5,monitor:DP-3
+      workspace=6,monitor:DP-3
 
       xwayland {
         force_zero_scaling = true

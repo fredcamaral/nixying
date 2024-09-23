@@ -10,7 +10,7 @@
     # Set the theme polarity (dark or light)
     polarity = "dark";
 
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/ayu-dark.yaml";
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
 
     # Configure cursor theme
     cursor = {
