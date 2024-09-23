@@ -1,0 +1,30 @@
+{
+  inputs,
+  username,
+  host,
+  ...
+}: {
+  imports = [
+    ./bat.nix # better cat command
+    ./btop.nix # resouces monitor
+    ./cava.nix # audio visualizer
+    ./fastfetch.nix # fetch tool
+    ./floorp/floorp.nix # firefox based browser
+    ./fzf.nix # fuzzy finder
+    ./git.nix # version control
+    ./gnome.nix # gnome apps
+    ./hyprland # window manager
+    ./kitty.nix # terminal
+    ./swaync/swaync.nix # notification deamon
+    ./micro.nix # nano replacement
+    ./nvim.nix # neovim editor
+    ./packages.nix # other packages
+    ./rofi.nix # launcher
+    ./scripts/scripts.nix # personal scripts
+    ./starship.nix # shell prompt
+    ./vscode.nix # vscode
+    ./waybar # status bar
+    ./xdg-mimes.nix # xdg config
+    ./zsh.nix # shell
+  ];
+}
