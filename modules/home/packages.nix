@@ -4,6 +4,9 @@
   ...
 }: {
   home.packages = with pkgs; [
+    pdfstudio2023
+    okular
+    clipman # clipboard manager
     kdePackages.kdenlive
     cliphist # clipboard manager
     eza # ls replacement
@@ -41,6 +44,7 @@
     age # Tool for encrypting files
     go # Go programming language
     go-tools # Go programming language
+    gopls # Go programming language
     home-manager # Home Manager
     cmake # Cross-platform make
     pigz # Parallel implementation of gzip for faster compression
@@ -102,5 +106,6 @@
     minikube # Tool that makes it easy to run Kubernetes locally
 
     inputs.alejandra.defaultPackage.${system}
+    inputs.zen-browser.packages."${system}".specific
   ];
 }
