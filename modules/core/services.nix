@@ -1,4 +1,4 @@
-{...}: {
+{host, ...}: {
   services = {
     gvfs.enable = true;
     gnome.gnome-keyring.enable = true;
@@ -7,23 +7,25 @@
     openssh.enable = true;
     printing.enable = true;
 
-    # Enable Tailscale VPN
-    # tailscale = {
-    #   enable = true;
-    #   authKeyFile = config.age.secrets.megaman-tailscale-auth.path;
-    # };
+    tailscale = {
+      enable = true;
+      authKeyFile =
+        if (host == "desktop")
+        then config.age.secrets.megaman-tailscale-auth.path
+        else config.age.secrets.bomberman-tailscale-auth.path;
+    };
 
-    # navidrome = {
-    #   enable = true;
-    #   openFirewall = true;
-    #   settings = {
-    #     Port = 4533;
-    #     MusicFolder = "/media/limbo/music";
-    #     DataFolder = "/media/limbo/navidrome/data";
-    #     CacheFolder = "/media/limbo/navidrome/cache";
-    #     EnableExternalServices = true;
-    #   };
-    # };
+    navidrome = {
+      enable = true;
+      openFirewall = true;
+      settings = {
+        Port = 4533;
+        MusicFolder = "/media/limbo/music";
+        DataFolder = "/media/limbo/navidrome/data";
+        CacheFolder = "/media/limbo/navidrome/cache";
+        EnableExternalServices = true;
+      };
+    };
   };
   services.logind.extraConfig = ''
     # don’t shutdown when power button is short-pressed

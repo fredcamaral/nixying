@@ -5,7 +5,7 @@
 }:
 with lib; let
   defaultApps = {
-    browser = ["floorp.desktop"];
+    browser = ["zen.desktop"];
     text = ["org.gnome.TextEditor.desktop"];
     image = ["com.interversehq.qView.desktop"];
     audio = ["mpv.desktop"];
@@ -15,7 +15,7 @@ with lib; let
       "org.gnome.Nautilus.desktop"
     ];
     office = ["libreoffice.desktop"];
-    pdf = ["org.gnome.Evince.desktop"];
+    pdf = ["okular.desktop"];
     terminal = ["kitty.desktop"];
     archive = ["org.gnome.FileRoller.desktop"];
   };
@@ -87,10 +87,32 @@ with lib; let
       flatten (mapAttrsToList (key: map (type: attrsets.nameValuePair type defaultApps."${key}")) mimeMap)
     );
 in {
-  xdg.configFile."mimeapps.list".force = true;
-  xdg.mimeApps.enable = true;
-  xdg.mimeApps.associations.added = associations;
-  xdg.mimeApps.defaultApplications = associations;
+  xdg = {
+    # Enable XDG Base Directory specification
+    enable = true;
+
+    # Force creation of the mimeapps.list file
+    configFile."mimeapps.list".force = true;
+
+    mimeApps.enable = true;
+    mimeApps.associations.added = associations;
+    mimeApps.defaultApplications = associations;
+
+    # Configure XDG user directories
+    userDirs = {
+      enable = true;
+
+      # Set custom paths for XDG directories
+      desktop = "${config.home.homeDirectory}/desktop";
+      documents = "${config.home.homeDirectory}/documents";
+      download = "${config.home.homeDirectory}/downloads";
+      music = "${config.home.homeDirectory}/music";
+      pictures = "${config.home.homeDirectory}/pictures";
+      publicShare = "${config.home.homeDirectory}/public";
+      templates = "${config.home.homeDirectory}/templates";
+      videos = "${config.home.homeDirectory}/videos";
+    };
+  };
 
   home.packages = with pkgs; [junction];
 

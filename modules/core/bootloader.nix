@@ -3,7 +3,11 @@
   config,
   ...
 }: {
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
-  boot.loader.systemd-boot.configurationLimit = 10;
+  boot.loader = {
+    systemd-boot.enable = true;
+    efi.canTouchEfiVariables = true;
+    systemd-boot.configurationLimit = 10;
+    systemd-boot.editor = true;
+  };
+  boot.initrd.systemd.enable = true;
 }

@@ -17,5 +17,8 @@
     amdgpu.opencl.enable = true;
   };
 
-  powerManagement.cpuFreqGovernor = lib.mkDefault "performance";
+  powerManagement = {
+    enable = true;
+    cpuFreqGovernor = lib.mkDefault "performance";
+  };
 }

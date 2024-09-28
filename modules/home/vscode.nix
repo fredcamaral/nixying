@@ -19,52 +19,53 @@
       "explorer.confirmDelete" = false; # Disable delete confirmation
       "editor.detectIndentation" = true; # Enable indentation detection
       "editor.minimap.enabled" = false; # Disable minimap
-      "cody.commandCodeLenses" = false; # Enable command code lenses
-      "extensions.autoUpdate" = false; # This stuff fixes vscode freaking out when theres an update
+      "cody.commandCodeLenses" = true; # Enable command code lenses
+      "extensions.autoUpdate" = true; # This stuff fixes vscode freaking out when theres an update
       "window.titleBarStyle" = "custom"; # needed otherwise vscode crashes, see https://github.com/NixOS/nixpkgs/issues/246509
-      "window.menuBarVisibility" = "toggle";
-      "editor.fontSize" = 14;
-      "material-icon-theme.folders.theme" = "classic";
-      "explorer.confirmDragAndDrop" = false;
-      "editor.fontLigatures" = true;
-      "editor.formatOnType" = true;
+      "window.menuBarVisibility" = "toggle"; # Disable menu bar
+      "editor.fontSize" = 14; # Set editor font size
+      "material-icon-theme.folders.theme" = "classic"; # Set folder icon theme
+      "explorer.confirmDragAndDrop" = false; # Disable drag and drop confirmation
+      "editor.fontLigatures" = true; # Enable font ligatures
+      "editor.formatOnType" = true; # Enable format on type
       "editor.formatOnPaste" = true; # Enable format on paste
       "workbench.layoutControl.type" = "menu"; # Disable layout control
-      "workbench.editor.limit.enabled" = true;
-      "files.autoSave" = "onWindowChange";
-      "breadcrumbs.enabled" = false;
-      "editor.renderControlCharacters" = false;
-      "editor.mouseWheelZoom" = true;
+      "workbench.editor.limit.enabled" = true; # Enable editor limit
+      "files.autoSave" = "onWindowChange"; # Enable auto save
+      "breadcrumbs.enabled" = true; # Enable breadcrumbs
+      "editor.renderControlCharacters" = false; # Disable control characters
+      "editor.mouseWheelZoom" = true; # Enable mouse wheel zoom
+      "editor.inlineSuggest.suppressSuggestions" = false; # Enable inline suggestions
     };
 
     extensions = with pkgs.vscode-extensions;
       [
-        ms-vscode-remote.remote-ssh
-        github.vscode-pull-request-github
-        donjayamanne.githistory
-        editorconfig.editorconfig
-        golang.go
-        rust-lang.rust-analyzer
-        ms-azuretools.vscode-docker
-        ms-vscode.makefile-tools
-        kamadorueda.alejandra
-        jnoortheen.nix-ide
-        hashicorp.terraform
-        davidanson.vscode-markdownlint
-        ms-vscode.cpptools-extension-pack
-        pkief.material-icon-theme
-        oderwat.indent-rainbow
-        aaron-bond.better-comments
-        mikestead.dotenv
-        github.codespaces
-        tailscale.vscode-tailscale
+        ms-vscode-remote.remote-ssh # SSH
+        github.vscode-pull-request-github # GitHub Pull Requests
+        donjayamanne.githistory # Git History
+        editorconfig.editorconfig # EditorConfig
+        golang.go # Go
+        rust-lang.rust-analyzer # Rust
+        ms-azuretools.vscode-docker # Docker
+        ms-vscode.makefile-tools # Makefile
+        kamadorueda.alejandra # Nix
+        jnoortheen.nix-ide # Nix
+        hashicorp.terraform # Terraform
+        davidanson.vscode-markdownlint # Markdown Lint
+        ms-vscode.cpptools-extension-pack # C/C++
+        pkief.material-icon-theme # Material Icon Theme
+        oderwat.indent-rainbow # Indent Rainbow
+        aaron-bond.better-comments # Better Comments
+        mikestead.dotenv # Dotenv
+        github.codespaces # Codespaces
+        tailscale.vscode-tailscale # Tailscale
       ]
       ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
         {
           name = "cody-ai";
           publisher = "sourcegraph";
-          version = "1.28.0";
-          sha256 = "sha256-Tn2Hii60CUMC40Ntw5sSsD5uKOsjgTQusQsCa8/LrwM=";
+          version = "1.34.3";
+          sha256 = "sha256-bIrkeZi/rgCRae2+CuAg+iPdd/0jp4VO3ufV4VlXhzs=";
         }
         {
           name = "vscode-postgresql";

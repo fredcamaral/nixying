@@ -8,6 +8,7 @@
     ./bat.nix # better cat command
     ./btop.nix # resouces monitor
     ./cava.nix # audio visualizer
+    ./direnv.nix # unclutter your .profile
     ./fastfetch.nix # fetch tool
     ./fzf.nix # fuzzy finder
     ./git.nix # version control

@@ -44,7 +44,10 @@
     # };
   };
 
-  powerManagement.cpuFreqGovernor = lib.mkDefault "performance";
+  powerManagement = {
+    enable = true;
+    cpuFreqGovernor = lib.mkDefault "performance";
+  };
 
   boot = {
     kernelModules = ["acpi_call"];

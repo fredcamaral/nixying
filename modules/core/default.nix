@@ -14,6 +14,7 @@
     ./xserver.nix
     ./network.nix
     ./nh.nix
+    ./packages.nix
     ./pipewire.nix
     ./program.nix
     ./security.nix
@@ -23,5 +24,6 @@
     ./user.nix
     ./wayland.nix
     ./virtualization.nix
+    ./secrets
   ];
 }
