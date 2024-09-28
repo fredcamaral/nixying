@@ -4,7 +4,7 @@
 
     settings = {
       theme_background = false;
-      update_ms = 500;
+      update_ms = 1000;
     };
   };
 

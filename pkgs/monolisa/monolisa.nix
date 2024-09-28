@@ -10,8 +10,7 @@ stdenv.mkDerivation rec {
 
   src = requireFile rec {
     name = "MonoLisa-Plus-2.015.zip";
-    # sha256 = "0j7pr6xlr0l8r8bk7sky5iw33xw9lz4yyzv7ajidx52vgripmz6p";
-    sha256 = "d7fc7a637e5b94dea254677fefc9a789f731782c7eea3317ca88824cbbc9f748";
+    sha256 = "05lqqicsfa2g2dclvaallhpkd1wn5559dzvqwr80v75mqg86k63v";
     message = ''
       ${name} font not found in nix store, to add it run:
       $ nix-store --add-fixed sha256 /path/to/${name}

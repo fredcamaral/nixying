@@ -4,7 +4,7 @@
   ...
 }: {
   home.packages = with pkgs; [
-    pdfstudio2023
+    font-manager
     okular
     clipman # clipboard manager
     kdePackages.kdenlive

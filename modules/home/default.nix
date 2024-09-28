@@ -9,8 +9,6 @@
     ./btop.nix # resouces monitor
     ./cava.nix # audio visualizer
     ./fastfetch.nix # fetch tool
-    ./floorp/floorp.nix # firefox based browser
-    ./firefox.nix # firefox
     ./fzf.nix # fuzzy finder
     ./git.nix # version control
     ./gnome.nix # gnome apps

@@ -1,5 +1,8 @@
 # system/modules/stylix.nix
-{pkgs, ...}: {
+{pkgs, ...}: let
+  monolisa = pkgs.callPackage ../../pkgs/monolisa/monolisa.nix {};
+  monolisa-nerd = pkgs.callPackage ../../pkgs/monolisa/monolisa-nerd.nix {inherit monolisa;};
+in {
   stylix = {
     # Enable Stylix for system-wide theming
     enable = true;
@@ -10,7 +13,7 @@
     # Set the theme polarity (dark or light)
     polarity = "dark";
 
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-machiatto.yaml";
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/bright.yaml";
 
     # Configure cursor theme
     cursor = {
@@ -32,8 +35,8 @@
       };
 
       monospace = {
-        package = pkgs.nerdfonts;
-        name = "FiraCode Nerd Font Mono";
+        package = monolisa-nerd;
+        name = "MonoLisa Nerd Font";
       };
 
       emoji = {

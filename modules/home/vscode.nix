@@ -14,7 +14,7 @@
       "workbench.sideBar.location" = "left"; # Set sidebar location
       "terminal.integrated.scrollback" = 10000; # Set terminal scrollback
       "telemetry.telemetryLevel" = "off"; # Disable telemetry
-      "remote.SSH.useLocalServer" = false; # SSH configuration
+      "remote.SSH.useLocalServer" = false; # SSH configuratio
       "editor.formatOnSave" = true; # Enable format on save
       "explorer.confirmDelete" = false; # Disable delete confirmation
       "editor.detectIndentation" = true; # Enable indentation detection
