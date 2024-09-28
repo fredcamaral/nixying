@@ -10,8 +10,6 @@
 
     alejandra.url = "github:kamadorueda/alejandra/3.0.0";
 
-    nix-gaming.url = "github:fufexan/nix-gaming";
-
     hyprland = {
       type = "git";
       url = "https://github.com/hyprwm/Hyprland";
@@ -25,11 +23,6 @@
 
     home-manager = {
       url = "github:nix-community/home-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    spicetify-nix = {
-      url = "github:gerg-l/spicetify-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 

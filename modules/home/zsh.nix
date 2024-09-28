@@ -12,7 +12,12 @@
     syntaxHighlighting.enable = true;
     oh-my-zsh = {
       enable = true;
-      plugins = [];
+      theme = "gnzh";
+      plugins = [
+        "git"
+        "history"
+        "wd"
+      ];
     };
     initExtraFirst = ''
       DISABLE_AUTO_UPDATE=true

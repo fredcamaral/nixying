@@ -19,7 +19,7 @@
       "explorer.confirmDelete" = false; # Disable delete confirmation
       "editor.detectIndentation" = true; # Enable indentation detection
       "editor.minimap.enabled" = false; # Disable minimap
-      "cody.commandCodeLenses" = true; # Enable command code lenses
+      "cody.commandCodeLenses" = false; # Enable command code lenses
       "extensions.autoUpdate" = true; # This stuff fixes vscode freaking out when theres an update
       "window.titleBarStyle" = "custom"; # needed otherwise vscode crashes, see https://github.com/NixOS/nixpkgs/issues/246509
       "window.menuBarVisibility" = "toggle"; # Disable menu bar
