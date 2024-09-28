@@ -60,7 +60,7 @@
       megaman = nixpkgs.lib.nixosSystem {
         inherit system;
         modules = [
-          ./hosts/desktop
+          ./hosts/megaman
           stylix.nixosModules.stylix
           agenix.nixosModules.default
         ];
@@ -72,7 +72,7 @@
       bomberman = nixpkgs.lib.nixosSystem {
         inherit system;
         modules = [
-          ./hosts/laptop
+          ./hosts/bomberman
           stylix.nixosModules.stylix
           agenix.nixosModules.default
         ];
@@ -84,7 +84,7 @@
       sonic = nixpkgs.lib.nixosSystem {
         inherit system;
         modules = [
-          ./hosts/vm
+          ./hosts/sonic
           stylix.nixosModules.stylix
           agenix.nixosModules.default
         ];

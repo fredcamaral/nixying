@@ -1,4 +1,8 @@
-{host, ...}: {
+{
+  host,
+  config,
+  ...
+}: {
   services = {
     gvfs.enable = true;
     gnome.gnome-keyring.enable = true;
@@ -10,7 +14,7 @@
     tailscale = {
       enable = true;
       authKeyFile =
-        if (host == "desktop")
+        if (host == "megaman")
         then config.age.secrets.megaman-tailscale-auth.path
         else config.age.secrets.bomberman-tailscale-auth.path;
     };
