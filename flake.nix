@@ -21,6 +21,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    nixvim = {
+      url = "github:nix-community/nixvim";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -38,6 +43,8 @@
     nixpkgs,
     stylix,
     agenix,
+    home-manager,
+    nixvim,
     self,
     ...
   } @ inputs: let
@@ -88,4 +95,21 @@
       };
     };
   };
+
+  homeConfigurations =
+    builtins.mapAttrs (
+      hostname: nixosConfig:
+        home-manager.lib.homeManagerConfiguration {
+          inherit pkgs;
+          modules = [
+            ./modules/home
+            stylix.homeManagerModules.stylix
+          ];
+          extraSpecialArgs = {
+            inherit inputs username;
+            host = hostname;
+          };
+        }
+    )
+    self.nixosConfigurations;
 }

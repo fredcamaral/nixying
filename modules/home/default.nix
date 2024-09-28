@@ -13,6 +13,7 @@
     ./fzf.nix # fuzzy finder
     ./git.nix # version control
     ./gnome.nix # gnome apps
+    ./home.nix
     ./hyprland # window manager
     ./kitty.nix # terminal
     ./swaync/swaync.nix # notification deamon
