@@ -14,7 +14,7 @@
 
   boot = {
     initrd.availableKernelModules = ["xhci_pci" "ahci" "nvme" "usb_storage" "usbhid" "sd_mod" "usbhid" "sr_mod"];
-    initrd.kernelModules = ["amdgpu"];
+    initrd.kernelModules = [];
     kernelModules = ["kvm-intel" "intel_pstate" "msr"];
     extraModulePackages = [];
     supportedFilesystems = ["ext4" "btrfs" "vfat" "zfs" "exfat"];
@@ -23,11 +23,6 @@
 
   fileSystems."/" = {
     device = "/dev/disk/by-uuid/17b6d18e-c2a6-4c5f-94e3-8873c3129b7b";
-    fsType = "ext4";
-  };
-
-  fileSystems."/media/vms" = {
-    device = "/dev/disk/by-uuid/78157258-2094-4ddd-b3f4-e72df1529000";
     fsType = "ext4";
   };
 

@@ -22,8 +22,8 @@
           "type": 1
         },
         "key":{
-         "Width": 1
-         },
+          "Width": 1
+          },
       },
       "modules": [
         {
@@ -71,7 +71,7 @@
           "keyColor": "32"
         },
         "break",
-       /* {
+        /* {
           "type": "cpu",
           "key": "╭─ ",
           "keyColor": "34",

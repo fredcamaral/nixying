@@ -1,5 +1,9 @@
-{ pkgs, config, ... }: 
 {
+  pkgs,
+  config,
+  lib,
+  ...
+}: {
   imports = [
     ./hardware-configuration.nix
     ./../../modules/core
@@ -11,12 +15,12 @@
     cpupower-gui
     powertop
   ];
-  
-  services = {    
+
+  services = {
     # thermald.enable = true;
     # cpupower-gui.enable = true;
     power-profiles-daemon.enable = true;
- 
+
     upower = {
       enable = true;
       percentageLow = 20;
@@ -40,7 +44,7 @@
     # };
   };
 
-  powerManagement.cpuFreqGovernor = "performance";
+  powerManagement.cpuFreqGovernor = lib.mkDefault "performance";
 
   boot = {
     kernelModules = ["acpi_call"];

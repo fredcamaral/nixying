@@ -10,6 +10,7 @@
     ./cava.nix # audio visualizer
     ./fastfetch.nix # fetch tool
     ./floorp/floorp.nix # firefox based browser
+    ./firefox.nix # firefox
     ./fzf.nix # fuzzy finder
     ./git.nix # version control
     ./gnome.nix # gnome apps
@@ -21,7 +22,6 @@
     ./packages.nix # other packages
     ./rofi.nix # launcher
     ./scripts/scripts.nix # personal scripts
-    ./starship.nix # shell prompt
     ./vscode.nix # vscode
     ./waybar # status bar
     ./xdg-mimes.nix # xdg config
