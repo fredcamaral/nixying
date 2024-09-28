@@ -45,7 +45,6 @@
     go # Go programming language
     go-tools # Go programming language
     gopls # Go programming language
-    home-manager # Home Manager
     cmake # Cross-platform make
     pigz # Parallel implementation of gzip for faster compression
     unrar # Extraction utility for RAR archives

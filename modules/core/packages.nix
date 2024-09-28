@@ -10,5 +10,6 @@
     pkgs.zoom-us
     pkgs.bzip3
     pkgs.bzip2
+    pkgs.home-manager
   ];
 }

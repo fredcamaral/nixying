@@ -94,12 +94,10 @@
         };
       };
     };
-  };
 
-  homeConfigurations =
-    builtins.mapAttrs (
-      hostname: nixosConfig:
-        home-manager.lib.homeManagerConfiguration {
+    homeConfigurations =
+      {
+        ${username} = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
           modules = [
             ./modules/home
@@ -107,9 +105,24 @@
           ];
           extraSpecialArgs = {
             inherit inputs username;
-            host = hostname;
+            host = "megaman"; # or whichever is your default host
           };
-        }
-    )
-    self.nixosConfigurations;
+        };
+      }
+      // builtins.mapAttrs (
+        hostname: nixosConfig:
+          home-manager.lib.homeManagerConfiguration {
+            inherit pkgs;
+            modules = [
+              ./modules/home
+              stylix.homeManagerModules.stylix
+            ];
+            extraSpecialArgs = {
+              inherit inputs username;
+              host = hostname;
+            };
+          }
+      )
+      self.nixosConfigurations;
+  };
 }
