@@ -87,9 +87,10 @@
       vi = "nvim";
 
       # Nixos
-      cdnix = "cd ~/repos/nixying && code ~/repos/nixying";
+      cdnix = "cd ~/repos/nixying";
       ns = "nom-shell --run zsh";
       nix-switch = "nh os switch";
+      home-switch = "home-manager switch --flake ~/repos/nixying/#fredamaral";
       nix-update = "nh os switch --update";
       nix-clean = "nh clean all --keep 5";
       nix-search = "nh search";

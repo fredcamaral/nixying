@@ -102,6 +102,7 @@
           modules = [
             ./modules/home
             stylix.homeManagerModules.stylix
+            nixvim.homeManagerModules.nixvim
           ];
           extraSpecialArgs = {
             inherit inputs username;
@@ -116,6 +117,7 @@
             modules = [
               ./modules/home
               stylix.homeManagerModules.stylix
+              nixvim.homeManagerModules.nixvim
             ];
             extraSpecialArgs = {
               inherit inputs username;
