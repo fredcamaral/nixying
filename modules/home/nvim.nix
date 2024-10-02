@@ -12,20 +12,5 @@
       gcc
       gnumake
     ];
-    plugins = [
-      {
-        plugin = pkgs.vimPlugins.nvchad;
-      }
-    ];
-  };
-  xdg.configFile.nvim = {
-    source = pkgs.vimPlugins.nvchad.src;
-    recursive = true;
-  };
-  home.file.nvchad_custom = {
-    enable = true;
-    source = ./nvchad_custom;
-    recursive = true;
-    target = ".config/nvim/lua/custom";
   };
 }
