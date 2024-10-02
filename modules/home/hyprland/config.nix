@@ -306,16 +306,17 @@
       monitor=DP-1,5120x1440@240,0x1440,1
       monitor=DP-2,2560x1440@59.95,2560x0,1
       monitor=DP-3,2560x1440@59.95,0x0,1
+      monitor=eDP-1,3840x2400@60,0x0,2
 
-      workspace=1,monitor:DP-1
-      workspace=2,monitor:DP-1
-      workspace=3,monitor:DP-1
-      workspace=7,monitor:DP-2
-      workspace=8,monitor:DP-2
-      workspace=9,monitor:DP-2
-      workspace=4,monitor:DP-3
-      workspace=5,monitor:DP-3
-      workspace=6,monitor:DP-3
+      #workspace=1,monitor:DP-1
+      #workspace=2,monitor:DP-1
+      #workspace=3,monitor:DP-1
+      #workspace=7,monitor:DP-2
+      #workspace=8,monitor:DP-2
+      #workspace=9,monitor:DP-2
+      #workspace=4,monitor:DP-3
+      #workspace=5,monitor:DP-3
+      #workspace=6,monitor:DP-3
 
       xwayland {
         force_zero_scaling = true

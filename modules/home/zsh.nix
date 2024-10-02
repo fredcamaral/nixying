@@ -73,7 +73,7 @@
       man = "BAT_THEME='default' batman";
 
       ls = "eza --icons=always -o --git -s type";
-      l = "eza --icons=always -o --git -s type -a --group-directories-first -l";
+      l = "eza --icons=always -o --git -s type --group-directories-first -l";
       # ll = "eza --icons  -a --group-directories-first -1 --no-user --long";
       ll = "ls -l";
       la = "ls -la";

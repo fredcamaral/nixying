@@ -36,6 +36,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+
     zen-browser.url = "github:MarceColl/zen-browser-flake";
   };
 
@@ -45,6 +47,7 @@
     agenix,
     home-manager,
     nixvim,
+    nixos-hardware,
     self,
     ...
   } @ inputs: let
@@ -75,6 +78,8 @@
           ./hosts/bomberman
           stylix.nixosModules.stylix
           agenix.nixosModules.default
+          nixos-hardware.nixosModules.lenovo-thinkpad-p1
+          nixos-hardware.nixosModules.common-gpu-nvidia
         ];
         specialArgs = {
           host = "bomberman";
