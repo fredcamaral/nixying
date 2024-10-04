@@ -8,7 +8,7 @@ in {
     enable = true;
 
     # Set the wallpaper image
-    image = ../../wallpapers/spac.jpg;
+    image = ../../wallpapers/minimalist-fluid.png;
 
     # Set the theme polarity (dark or light)
     polarity = "dark";
@@ -46,8 +46,8 @@ in {
 
       # Set font sizes for different contexts
       sizes = {
-        applications = 10;
-        desktop = 10;
+        applications = 12;
+        desktop = 12;
         popups = 12;
         terminal = 12;
       };
