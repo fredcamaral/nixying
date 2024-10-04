@@ -72,7 +72,7 @@
           stylix.nixosModules.stylix
           agenix.nixosModules.default
           nixos-hardware.nixosModules.lenovo-thinkpad-p1
-          nixos-hardware.nixosModules.common-gpu-nvidia
+          # nixos-hardware.nixosModules.common-gpu-nvidia
         ];
         specialArgs = {
           host = "bomberman";

@@ -8,7 +8,7 @@ in {
     enable = true;
 
     # Set the wallpaper image
-    image = ../../wallpapers/dark-forest.jpg;
+    image = ../../wallpapers/spac.jpg;
 
     # Set the theme polarity (dark or light)
     polarity = "dark";
