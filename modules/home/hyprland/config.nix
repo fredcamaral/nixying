@@ -1,5 +1,10 @@
-{...}: {
+{
+  inputs,
+  pkgs,
+  ...
+}: {
   wayland.windowManager.hyprland = {
+    plugins = [inputs.hy3.packages.x86_64-linux.hy3];
     settings = {
       # autostart
       exec-once = [
@@ -28,9 +33,9 @@
 
       general = {
         "$mainMod" = "SUPER";
-        layout = "dwindle";
-        gaps_in = 2;
-        gaps_out = 2;
+        layout = "hy3";
+        gaps_in = 1;
+        gaps_out = 1;
         border_size = 3;
         border_part_of_window = false;
         no_border_on_floating = false;
@@ -308,12 +313,17 @@
 
     extraConfig = ''
       monitor=eDP-1,3840x2400@60,0x0,2
+      monitor=DP-7,5120x1440@60,-5120x0,1
       monitor=Unknown-1,disabled
-      # monitor=DP-7,5120x1440@240,0x1440,1
       # monitor=DP-2,2560x1440@59.95,2560x0,1
       # monitor=DP-3,2560x1440@59.95,0x0,1
 
-      #workspace=1,monitor:DP-1
+      workspace=1,monitor:eDP-1
+      workspace=2,monitor:DP-7
+      workspace=3,monitor:DP-7
+      workspace=4,monitor:DP-7
+      workspace=5,monitor:DP-7
+      workspace=6,monitor:DP-7
 
       xwayland {
         force_zero_scaling = false

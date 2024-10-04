@@ -12,7 +12,6 @@
   environment.systemPackages = with pkgs; [
     acpi
     brightnessctl
-    # cpupower-gui
   ];
 
   services.xserver = {
@@ -26,9 +25,8 @@
     prime = {
       offload.enable = true;
       offload.enableOffloadCmd = true;
-      intelBusId = "PCI:0:2:0";
-      nvidiaBusId = "PCI:1:0:0";
-      reverseSync.enable = true;
+      intelBusId = "PCI:00:02:0";
+      nvidiaBusId = "PCI:01:00:0";
     };
     open = false;
     nvidiaSettings = true;
@@ -43,8 +41,6 @@
   };
 
   services = {
-    # thermald.enable = true;
-    # cpupower-gui.enable = true;
     tlp.enable = true;
     tlp.settings = {
       RUNTIME_PM_ON_AC = "auto";
@@ -61,13 +57,16 @@
   };
 
   powerManagement.cpuFreqGovernor = lib.mkDefault "performance";
+  services.logind = {
+    lidSwitch = "suspend";
+    lidSwitchDocked = "ignore";
+    lidSwitchExternalPower = "ignore";
+  };
 
   boot = {
     kernelModules = ["acpi_call"];
     extraModulePackages = with config.boot.kernelPackages; [
       acpi_call
-      # cpupower
     ];
-    # ++ [pkgs.cpupower-gui];
   };
 }

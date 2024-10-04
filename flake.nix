@@ -6,12 +6,16 @@
 
     hypr-contrib.url = "github:hyprwm/contrib";
     hyprpicker.url = "github:hyprwm/hyprpicker";
+    hy3 = {
+      url = "github:outfoxxed/hy3?ref=hl0.43.0";
+      inputs.hyprland.follows = "hyprland";
+    };
 
     alejandra.url = "github:kamadorueda/alejandra/3.0.0";
 
     hyprland = {
       type = "git";
-      url = "https://github.com/hyprwm/Hyprland";
+      url = "https://github.com/hyprwm/Hyprland?ref=v0.43.0";
       submodules = true;
     };
 
@@ -32,7 +36,7 @@
 
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
-    zen-browser.url = "github:MarceColl/zen-browser-flake";
+    zen-browser.url = "path:./pkgs/zen-browser-flake";
   };
 
   outputs = {
@@ -72,6 +76,7 @@
           stylix.nixosModules.stylix
           agenix.nixosModules.default
           nixos-hardware.nixosModules.lenovo-thinkpad-p1
+          nixos-hardware.nixosModules.common-hidpi
         ];
         specialArgs = {
           host = "lorinand";

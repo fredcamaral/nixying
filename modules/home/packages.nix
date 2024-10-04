@@ -2,12 +2,9 @@
   inputs,
   pkgs,
   ...
-}: let
-  zenbrowser = pkgs.callPackage ../../pkgs/zen-browser-flake/flake.nix {};
-in {
+}: {
   home.packages = with pkgs; [
     font-manager
-    zenbrowser
     okular
     clipman # clipboard manager
     eza # ls replacement

@@ -11,6 +11,7 @@
     ./fonts.nix
     ./hardware.nix
     ./network.nix
+    ./console.nix
     ./nh.nix
     ./packages.nix
     ./pipewire.nix
