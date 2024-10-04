@@ -62,7 +62,6 @@
     usbutils # USB utilities (such as lsusb)
     gvfs # Virtual filesystem implementation for GIO
     kio-fuse # FUSE support for KIO
-    pulseaudioFull # Sound server for POSIX and Win32 systems
     vimix-icon-theme # Icon theme for Linux
     bandwhich # Terminal bandwidth utilization tool
     moreutils # Growing collection of the unix tools that nobody thought to write long ago

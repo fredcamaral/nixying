@@ -35,7 +35,7 @@
       "breadcrumbs.enabled" = true; # Enable breadcrumbs
       "editor.renderControlCharacters" = false; # Disable control characters
       "editor.mouseWheelZoom" = true; # Enable mouse wheel zoom
-      "editor.inlineSuggest.suppressSuggestions" = false; # Enable inline suggestions
+      "editor.inlineSuggest.suppressSuggestions" = true; # Enable inline suggestions
       "cody.chat.defaultLocation" = "editor"; #  Enable chat in editor
     };
 
