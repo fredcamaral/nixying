@@ -53,41 +53,40 @@
     lib = nixpkgs.lib;
   in {
     nixosConfigurations = {
-      megaman = nixpkgs.lib.nixosSystem {
+      blastoise = nixpkgs.lib.nixosSystem {
         inherit system;
         modules = [
-          ./hosts/megaman
+          ./hosts/core-server
           stylix.nixosModules.stylix
           agenix.nixosModules.default
         ];
         specialArgs = {
-          host = "megaman";
+          host = "blastoise";
           inherit self inputs username;
         };
       };
-      bomberman = nixpkgs.lib.nixosSystem {
+      lorinand = nixpkgs.lib.nixosSystem {
         inherit system;
         modules = [
-          ./hosts/bomberman
+          ./hosts/thinkpad-p1
           stylix.nixosModules.stylix
           agenix.nixosModules.default
           nixos-hardware.nixosModules.lenovo-thinkpad-p1
-          # nixos-hardware.nixosModules.common-gpu-nvidia
         ];
         specialArgs = {
-          host = "bomberman";
+          host = "lorinand";
           inherit self inputs username;
         };
       };
-      sonic = nixpkgs.lib.nixosSystem {
+      edelgion = nixpkgs.lib.nixosSystem {
         inherit system;
         modules = [
-          ./hosts/sonic
+          ./hosts/vms
           stylix.nixosModules.stylix
           agenix.nixosModules.default
         ];
         specialArgs = {
-          host = "sonic";
+          host = "edelgion";
           inherit self inputs username;
         };
       };
@@ -103,7 +102,7 @@
           ];
           extraSpecialArgs = {
             inherit inputs username;
-            host = "megaman"; # or whichever is your default host
+            host = "lorinand"; # or whichever is your default host
           };
         };
       }
