@@ -4,6 +4,7 @@
   ...
 }: {
   home.packages = with pkgs; [
+    networkmanagerapplet
     font-manager
     okular
     clipman # clipboard manager
@@ -93,7 +94,6 @@
     vimix-icon-theme # Icon theme for Linux
     wirelesstools # Tools for setting up wireless networking
     bandwhich # Terminal bandwidth utilization tool
-    busybox # Tiny utilities for small and embedded systems
     code2prompt # Generate command descriptions for AI assistants
     eva # Simple calculator REPL
     fio # Flexible I/O Tester for benchmarking and stress-testing

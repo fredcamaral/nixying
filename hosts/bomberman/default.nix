@@ -12,7 +12,7 @@
   environment.systemPackages = with pkgs; [
     acpi
     brightnessctl
-    cpupower-gui
+    # cpupower-gui
   ];
 
   services.xserver = {
@@ -43,8 +43,8 @@
   };
 
   services = {
-    thermald.enable = true;
-    cpupower-gui.enable = true;
+    # thermald.enable = true;
+    # cpupower-gui.enable = true;
     tlp.enable = true;
     tlp.settings = {
       RUNTIME_PM_ON_AC = "auto";
@@ -64,11 +64,10 @@
 
   boot = {
     kernelModules = ["acpi_call"];
-    extraModulePackages = with config.boot.kernelPackages;
-      [
-        acpi_call
-        cpupower
-      ]
-      ++ [pkgs.cpupower-gui];
+    extraModulePackages = with config.boot.kernelPackages; [
+      acpi_call
+      # cpupower
+    ];
+    # ++ [pkgs.cpupower-gui];
   };
 }

@@ -8,10 +8,9 @@
 }: {
   imports = [
     ./bootloader.nix
-    ./console.nix
     ./fonts.nix
     ./hardware.nix
-    ./xserver.nix
+    # ./xserver.nix
     ./network.nix
     ./nh.nix
     ./packages.nix

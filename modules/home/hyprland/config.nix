@@ -196,6 +196,10 @@
         ",XF86AudioPrev,exec, playerctl previous"
         ",XF86AudioStop, exec, playerctl stop"
 
+        #laptop brightness
+        ",XF86MonBrightnessUp, exec, brightnessctl set 2%+"
+        ",XF86MonBrightnessDown, exec, brightnessctl set 2%-"
+
         "$mainMod, mouse_down, workspace, e-1"
         "$mainMod, mouse_up, workspace, e+1"
 
@@ -206,8 +210,8 @@
       # binds active in lockscreen
       bindl = [
         # laptop brigthness
-        ",XF86MonBrightnessUp, exec, brightnessctl set 5%+"
-        ",XF86MonBrightnessDown, exec, brightnessctl set 5%-"
+        ",XF86MonBrightnessUp, exec, brightnessctl set 2%+"
+        ",XF86MonBrightnessDown, exec, brightnessctl set 2%-"
         "$mainMod, XF86MonBrightnessUp, exec, brightnessctl set 100%+"
         "$mainMod, XF86MonBrightnessDown, exec, brightnessctl set 100%-"
       ];
@@ -303,10 +307,11 @@
     };
 
     extraConfig = ''
-      monitor=DP-1,5120x1440@240,0x1440,1
-      monitor=DP-2,2560x1440@59.95,2560x0,1
-      monitor=DP-3,2560x1440@59.95,0x0,1
-      monitor=eDP-1,3840x2400@60,0x0,2
+      monitor=DP-7,5120x1440@240,0x1440,1
+      # monitor=DP-2,2560x1440@59.95,2560x0,1
+      # monitor=DP-3,2560x1440@59.95,0x0,1
+      monitor=eDP-1,3840x2400@60,0x0,1.875
+      monitor=Unknown-1,disabled
 
       #workspace=1,monitor:DP-1
       #workspace=2,monitor:DP-1

@@ -1,6 +1,6 @@
 {host, ...}: let
   custom = {
-    font = "JetBrainsMono Nerd Font";
+    font = "MonoLisa Nerd Font";
     font_size = "18px";
     font_weight = "bold";
     text_color = "#FBF1C7";
@@ -29,23 +29,20 @@ in {
     modules-left = [
       "custom/launcher"
       "hyprland/workspaces"
-      "tray"
     ];
     modules-center = [
-      "clock"
+      "hyprland/window"
     ];
     modules-right = [
       "cpu"
       "memory"
-      (
-        if (host == "megaman")
-        then "disk"
-        else ""
-      )
+      "disk"
       "pulseaudio"
       "network"
       "battery"
+      "tray"
       "custom/notification"
+      "clock"
       "idle_inhibitor"
     ];
     clock = {
@@ -81,9 +78,9 @@ in {
         "4" = [];
         "5" = [];
         "6" = [];
-        "7" = [];
-        "8" = [];
-        "9" = [];
+        # "7" = [];
+        # "8" = [];
+        # "9" = [];
       };
     };
     idle_inhibitor = {
@@ -108,6 +105,10 @@ in {
       format = "<span foreground='${orange}'>󰋊 </span>{percentage_used}%";
       interval = 60;
     };
+    "hyprland/window" = {
+      format = "󰖯 {}";
+      max-length = 100;
+    };
     network = {
       format-wifi = "<span foreground='${magenta}'> </span> {signalStrength}%";
       format-ethernet = "<span foreground='${magenta}'>󰀂 </span>";
@@ -116,7 +117,7 @@ in {
       format-disconnected = "<span foreground='${magenta}'>󰖪 </span>";
     };
     tray = {
-      icon-size = 20;
+      icon-size = 12;
       spacing = 8;
     };
     pulseaudio = {

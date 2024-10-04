@@ -4,12 +4,7 @@
 in {
   fonts = {
     enableDefaultPackages = true;
-    fontconfig = {
-      enable = true;
-      # antialias = true;
-      # hinting.enable = true;
-      # hinting.style = "full";
-    };
+    fontconfig.enable = true;
     packages = with pkgs; [
       monolisa
       monolisa-nerd

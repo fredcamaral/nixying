@@ -3,10 +3,6 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    nur.url = "github:nix-community/NUR";
-
-    hypr-contrib.url = "github:hyprwm/contrib";
-    hyprpicker.url = "github:hyprwm/hyprpicker";
 
     alejandra.url = "github:kamadorueda/alejandra/3.0.0";
 
@@ -18,11 +14,6 @@
 
     agenix = {
       url = "github:ryantm/agenix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    nixvim = {
-      url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -46,7 +37,6 @@
     stylix,
     agenix,
     home-manager,
-    nixvim,
     nixos-hardware,
     self,
     ...
@@ -107,7 +97,6 @@
           modules = [
             ./modules/home
             stylix.homeManagerModules.stylix
-            nixvim.homeManagerModules.nixvim
           ];
           extraSpecialArgs = {
             inherit inputs username;
@@ -122,7 +111,6 @@
             modules = [
               ./modules/home
               stylix.homeManagerModules.stylix
-              nixvim.homeManagerModules.nixvim
             ];
             extraSpecialArgs = {
               inherit inputs username;
