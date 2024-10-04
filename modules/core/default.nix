@@ -10,7 +10,6 @@
     ./bootloader.nix
     ./fonts.nix
     ./hardware.nix
-    # ./xserver.nix
     ./network.nix
     ./nh.nix
     ./packages.nix

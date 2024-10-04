@@ -37,6 +37,7 @@
       "editor.mouseWheelZoom" = true; # Enable mouse wheel zoom
       "editor.inlineSuggest.suppressSuggestions" = true; # Enable inline suggestions
       "cody.chat.defaultLocation" = "editor"; #  Enable chat in editor
+      "makefile.configureOnOpen" = true;
     };
 
     extensions = with pkgs.vscode-extensions;
