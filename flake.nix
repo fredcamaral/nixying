@@ -8,7 +8,7 @@
       url = "github:outfoxxed/hy3?ref=hl0.43.0";
       inputs.hyprland.follows = "hyprland";
     };
-    alejandra.url = "github:kamadorueda/alejandra/3.0.0";
+    alejandra.url = "github:kamadorueda/alejandra";
     hyprland = {
       url = "github:hyprwm/Hyprland?ref=v0.43.0";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -17,8 +17,8 @@
     home-manager.url = "github:nix-community/home-manager";
     stylix.url = "github:danth/stylix";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
-    zen-browser.url = "path:derivs/zen-browser";
-    nixvim.url = "path:derivs/nixvim";
+    zen-browser.url = "path:derivs/zen-browser/";
+    nixvim.url = "path:derivs/nixvim/";
   };
 
   outputs = inputs @ {
