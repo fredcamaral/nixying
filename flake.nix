@@ -18,7 +18,7 @@
     stylix.url = "github:danth/stylix";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     zen-browser.url = "path:flakes/zen-browser-flake";
-    nixvim.url = "path:flakes/nixvim-config";
+    nixvim.url = "path:flakes/nixvim";
   };
 
   outputs = inputs @ {
