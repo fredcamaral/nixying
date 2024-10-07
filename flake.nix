@@ -41,24 +41,24 @@
         };
       in {
         nixosConfigurations = {
-          blastoise = mkSystem {
+          lothlorien = mkSystem {
             inherit system pkgs inputs username;
-            hostModule = ./hosts/core-server;
+            hostModule = ./hosts/lothlorien;
             extraModules = [];
           };
 
           lorinand = mkSystem {
             inherit system pkgs inputs username;
-            hostModule = ./hosts/thinkpad-p1;
+            hostModule = ./hosts/lorinand;
             extraModules = [
               inputs.nixos-hardware.nixosModules.lenovo-thinkpad-p1
               inputs.nixos-hardware.nixosModules.common-hidpi
             ];
           };
 
-          edelgion = mkSystem {
+          beleriand = mkSystem {
             inherit system pkgs inputs username;
-            hostModule = ./hosts/vms;
+            hostModule = ./hosts/beleriand;
             extraModules = [];
           };
         };
