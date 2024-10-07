@@ -89,6 +89,13 @@
             inherit inputs username;
             host = hostname;
           })
-        self.nixosConfigurations;
+        self.nixosConfigurations
+        // {
+          "${username}" = mkHome {
+            pkgs = nixpkgs.legacyPackages.x86_64-linux;
+            inherit inputs username;
+            host = "lorinand"; # or whichever is your default host
+          };
+        };
     };
 }
