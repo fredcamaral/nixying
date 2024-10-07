@@ -17,8 +17,8 @@
     home-manager.url = "github:nix-community/home-manager";
     stylix.url = "github:danth/stylix";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
-    zen-browser.url = "path:flakes/zen-browser-flake";
-    nixvim.url = "path:flakes/nixvim";
+    zen-browser.url = "github:MarceColl/zen-browser-flake";
+    nixvim.url = "github:elythh/nixvim";
   };
 
   outputs = inputs @ {
