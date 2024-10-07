@@ -19,7 +19,7 @@ in {
     cursor = {
       name = "Vimix-Cursors-White";
       package = pkgs.vimix-cursor-theme;
-      size = 36;
+      size = 42;
     };
 
     # Configure system fonts

@@ -23,7 +23,7 @@
       "extensions.autoUpdate" = true; # This stuff fixes vscode freaking out when theres an update
       "window.titleBarStyle" = "custom"; # needed otherwise vscode crashes, see https://github.com/NixOS/nixpkgs/issues/246509
       "window.menuBarVisibility" = "toggle"; # Disable menu bar
-      "editor.fontSize" = 14; # Set editor font size
+      "editor.fontSize" = 16; # Set editor font size
       "material-icon-theme.folders.theme" = "classic"; # Set folder icon theme
       "explorer.confirmDragAndDrop" = false; # Disable drag and drop confirmation
       "editor.fontLigatures" = true; # Enable font ligatures

@@ -16,21 +16,25 @@
 
   services.xserver = {
     videoDrivers = ["nvidia"];
+    libinput.enable = true;
   };
 
-  hardware.nvidia = {
-    modesetting.enable = true;
-    powerManagement.enable = true;
-    powerManagement.finegrained = true;
-    prime = {
-      offload.enable = true;
-      offload.enableOffloadCmd = true;
-      intelBusId = "PCI:00:02:0";
-      nvidiaBusId = "PCI:01:00:0";
+  hardware = {
+    trackpoint.enable = true;
+    nvidia = {
+      modesetting.enable = true;
+      powerManagement.enable = true;
+      powerManagement.finegrained = true;
+      prime = {
+        offload.enable = true;
+        offload.enableOffloadCmd = true;
+        intelBusId = "PCI:0:2:0";
+        nvidiaBusId = "PCI:1:0:0";
+      };
+      open = false;
+      nvidiaSettings = true;
+      package = config.boot.kernelPackages.nvidiaPackages.stable;
     };
-    open = false;
-    nvidiaSettings = true;
-    package = config.boot.kernelPackages.nvidiaPackages.stable;
   };
 
   boot.kernelPackages = lib.mkDefault pkgs.linuxPackages_latest;
@@ -41,10 +45,24 @@
   };
 
   services = {
+    autorandr.enable = true;
+    fstrim.enable = true;
+    fwupd.enable = true;
+    thermald.enable = true;
     tlp.enable = true;
     tlp.settings = {
+      START_CHARGE_THRESH_BAT0 = 75;
+      STOP_CHARGE_THRESH_BAT0 = 80;
+      CPU_SCALING_GOVERNOR_ON_AC = "performance";
+      CPU_SCALING_GOVERNOR_ON_BAT = "powersave";
       RUNTIME_PM_ON_AC = "auto";
       RUNTIME_PM_ON_BAT = "auto";
+    };
+
+    logind = {
+      lidSwitch = "suspend";
+      lidSwitchDocked = "ignore";
+      lidSwitchExternalPower = "ignore";
     };
 
     upower = {
@@ -57,11 +75,6 @@
   };
 
   powerManagement.cpuFreqGovernor = lib.mkDefault "performance";
-  services.logind = {
-    lidSwitch = "suspend";
-    lidSwitchDocked = "ignore";
-    lidSwitchExternalPower = "ignore";
-  };
 
   boot = {
     kernelModules = ["acpi_call"];

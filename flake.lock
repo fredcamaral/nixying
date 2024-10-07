@@ -416,11 +416,11 @@
         "xdph": "xdph"
       },
       "locked": {
-        "lastModified": 1728031287,
-        "narHash": "sha256-uGudMapfYGI7mY5mOZrb5tXYeGhp8Oar7w72qyeFiQA=",
+        "lastModified": 1728223706,
+        "narHash": "sha256-HrsylIpk+17wwsh/+sgUBmL7VHakF+EWv9v9Dx1268I=",
         "ref": "refs/heads/main",
-        "rev": "1ed925b69c2854a3f345cbeb7dca29a6286ca926",
-        "revCount": 5289,
+        "rev": "4e41cda27ed4176005082436cb35878335e63fae",
+        "revCount": 5301,
         "submodules": true,
         "type": "git",
         "url": "https://github.com/hyprwm/Hyprland?ref=v0.43.0"
@@ -635,11 +635,11 @@
     },
     "nixos-hardware": {
       "locked": {
-        "lastModified": 1727665282,
-        "narHash": "sha256-oKtfbQB1MBypqIyzkC8QCQcVGOa1soaXaGgcBIoh14o=",
+        "lastModified": 1728056216,
+        "narHash": "sha256-IrO06gFUDTrTlIP3Sz+mRB6WUoO2YsgMtOD3zi0VEt0=",
         "owner": "NixOS",
         "repo": "nixos-hardware",
-        "rev": "11c43c830e533dad1be527ecce379fcf994fbbb5",
+        "rev": "b7ca02c7565fbf6d27ff20dd6dbd49c5b82eef28",
         "type": "github"
       },
       "original": {
@@ -715,11 +715,11 @@
     },
     "nixpkgs_5": {
       "locked": {
-        "lastModified": 1727802920,
-        "narHash": "sha256-HP89HZOT0ReIbI7IJZJQoJgxvB2Tn28V6XS3MNKnfLs=",
+        "lastModified": 1728018373,
+        "narHash": "sha256-NOiTvBbRLIOe5F6RbHaAh6++BNjsb149fGZd1T4+KBg=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "27e30d177e57d912d614c88c622dcfdb2e6e6515",
+        "rev": "bc947f541ae55e999ffdb4013441347d83b00feb",
         "type": "github"
       },
       "original": {
@@ -796,11 +796,11 @@
         "tinted-tmux": "tinted-tmux"
       },
       "locked": {
-        "lastModified": 1727723275,
-        "narHash": "sha256-k4HrG8TJQ0RqDS1tlDz71kvWFBNQ7qZI9T5Z0qLR85Y=",
+        "lastModified": 1728242323,
+        "narHash": "sha256-GYGx9aK+PCseQO72u6eJc8LJxWhAm2p2+3WXJ42seE8=",
         "owner": "danth",
         "repo": "stylix",
-        "rev": "e7e97059776da7e34b739415a7bc8f80f606b803",
+        "rev": "39e5435c1da9ce50fe36deaf58bd2b94dd4d8249",
         "type": "github"
       },
       "original": {
@@ -961,7 +961,7 @@
       },
       "locked": {
         "lastModified": 1,
-        "narHash": "sha256-5B0LLjP94ehBi5ynpP+bgKGglBG4a646ilAj9JV+UZA=",
+        "narHash": "sha256-NIim7EJ/hOv4A3qdRyyI5fwF9TliUehWeHI5QoISaYw=",
         "path": "./pkgs/zen-browser-flake",
         "type": "path"
       },
