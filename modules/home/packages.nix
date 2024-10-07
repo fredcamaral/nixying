@@ -68,6 +68,7 @@
     docker_27 # Platform for developing, shipping, and running applications in containers
 
     inputs.alejandra.defaultPackage.${system}
-    inputs.zen-browser.packages."${system}".specific
+    inputs.zen-browser.packages.${system}.specific
+    inputs.nixvim.packages.${system}.default
   ];
 }

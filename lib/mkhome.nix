@@ -9,7 +9,6 @@ inputs.home-manager.lib.homeManagerConfiguration {
   modules = [
     ../modules/home
     inputs.stylix.homeManagerModules.stylix
-    inputs.nixvim.homeManagerModules.nixvim
   ];
   extraSpecialArgs = {
     inherit inputs username host;

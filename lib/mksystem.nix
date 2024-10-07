@@ -13,7 +13,6 @@ inputs.nixpkgs.lib.nixosSystem {
       hostModule
       inputs.stylix.nixosModules.stylix
       inputs.agenix.nixosModules.default
-      inputs.nixvim.nixosModules.nixvim
     ]
     ++ extraModules;
   specialArgs = {

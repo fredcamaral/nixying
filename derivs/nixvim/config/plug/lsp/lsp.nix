@@ -7,9 +7,6 @@
       enable = true;
       inlayHints = true;
       servers = {
-        ansiblels = {
-          enable = true;
-        };
         html = {
           enable = true;
         };

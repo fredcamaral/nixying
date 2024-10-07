@@ -31,6 +31,6 @@
     ./xdg-mimes.nix # xdg config
     ./zsh.nix # shell
     ./stylix.nix # theming
-    ./kanshi.nix # monitor config
+    # ./kanshi.nix # monitor config
   ];
 }
