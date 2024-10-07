@@ -1,5 +1,5 @@
 {
-  description = "FrostPhoenix's nixos configuration";
+  description = "fred amaral's nixos configuration";
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     hypr-contrib.url = "github:hyprwm/contrib";
@@ -10,126 +10,67 @@
     };
     alejandra.url = "github:kamadorueda/alejandra/3.0.0";
     hyprland = {
-      type = "git";
-      url = "https://github.com/hyprwm/Hyprland?ref=v0.43.0";
-      submodules = true;
-    };
-    agenix = {
-      url = "github:ryantm/agenix";
+      url = "github:hyprwm/Hyprland?ref=v0.43.0";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    home-manager = {
-      url = "github:nix-community/home-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    stylix = {
-      url = "github:danth/stylix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    agenix.url = "github:ryantm/agenix";
+    home-manager.url = "github:nix-community/home-manager";
+    stylix.url = "github:danth/stylix";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     zen-browser.url = "path:pkgs/zen-browser-flake";
-    # Add NixVim input
-    nixvim = {
-      url = "github:nix-community/nixvim";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    nixvim.url = "github:nix-community/nixvim";
+    flake-utils.url = "github:numtide/flake-utils";
   };
-  outputs = {
-    nixpkgs,
-    stylix,
-    agenix,
-    home-manager,
-    nixos-hardware,
-    nixvim,
+
+  outputs = inputs @ {
     self,
+    nixpkgs,
+    home-manager,
+    flake-utils,
     ...
-  } @ inputs: let
+  }: let
     username = "fredamaral";
-    system = "x86_64-linux";
-    pkgs = import nixpkgs {
-      inherit system;
-      config.allowUnfree = true;
-    };
-    lib = nixpkgs.lib;
-  in {
-    nixosConfigurations = {
-      blastoise = nixpkgs.lib.nixosSystem {
-        inherit system;
-        modules = [
-          ./hosts/core-server
-          stylix.nixosModules.stylix
-          agenix.nixosModules.default
-          # Add NixVim module
-          nixvim.nixosModules.nixvim
-        ];
-        specialArgs = {
-          host = "blastoise";
-          inherit self inputs username;
+    mkSystem = import ./lib/mksystem.nix;
+    mkHome = import ./lib/mkhome.nix;
+  in
+    flake-utils.lib.eachDefaultSystem (
+      system: let
+        pkgs = import nixpkgs {
+          inherit system;
+          config.allowUnfree = true;
         };
-      };
-      lorinand = nixpkgs.lib.nixosSystem {
-        inherit system;
-        modules = [
-          ./hosts/thinkpad-p1
-          stylix.nixosModules.stylix
-          agenix.nixosModules.default
-          nixos-hardware.nixosModules.lenovo-thinkpad-p1
-          nixos-hardware.nixosModules.common-hidpi
-          # Add NixVim module
-          nixvim.nixosModules.nixvim
-        ];
-        specialArgs = {
-          host = "lorinand";
-          inherit self inputs username;
-        };
-      };
-      edelgion = nixpkgs.lib.nixosSystem {
-        inherit system;
-        modules = [
-          ./hosts/vms
-          stylix.nixosModules.stylix
-          agenix.nixosModules.default
-          # Add NixVim module
-          nixvim.nixosModules.nixvim
-        ];
-        specialArgs = {
-          host = "edelgion";
-          inherit self inputs username;
-        };
-      };
-    };
-    homeConfigurations =
-      {
-        ${username} = home-manager.lib.homeManagerConfiguration {
-          inherit pkgs;
-          modules = [
-            ./modules/home
-            stylix.homeManagerModules.stylix
-            # Add NixVim module
-            nixvim.homeManagerModules.nixvim
-          ];
-          extraSpecialArgs = {
-            inherit inputs username;
-            host = "lorinand"; # or whichever is your default host
+      in {
+        nixosConfigurations = {
+          blastoise = mkSystem {
+            inherit system pkgs inputs username;
+            hostModule = ./hosts/core-server;
+            extraModules = [];
+          };
+
+          lorinand = mkSystem {
+            inherit system pkgs inputs username;
+            hostModule = ./hosts/thinkpad-p1;
+            extraModules = [
+              inputs.nixos-hardware.nixosModules.lenovo-thinkpad-p1
+              inputs.nixos-hardware.nixosModules.common-hidpi
+            ];
+          };
+
+          edelgion = mkSystem {
+            inherit system pkgs inputs username;
+            hostModule = ./hosts/vms;
+            extraModules = [];
           };
         };
-      }
-      // builtins.mapAttrs (
-        hostname: nixosConfig:
-          home-manager.lib.homeManagerConfiguration {
-            inherit pkgs;
-            modules = [
-              ./modules/home
-              stylix.homeManagerModules.stylix
-              # Add NixVim module
-              nixvim.homeManagerModules.nixvim
-            ];
-            extraSpecialArgs = {
-              inherit inputs username;
+
+        homeConfigurations =
+          builtins.mapAttrs
+          (hostname: nixosConfig:
+            mkHome {
+              inherit pkgs inputs username;
               host = hostname;
-            };
-          }
-      )
-      self.nixosConfigurations;
-  };
+            })
+          self.nixosConfigurations;
+      }
+    );
 }
