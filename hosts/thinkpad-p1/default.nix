@@ -16,7 +16,6 @@
 
   services.xserver = {
     videoDrivers = ["nvidia"];
-    libinput.enable = true;
   };
 
   hardware = {
@@ -45,6 +44,7 @@
   };
 
   services = {
+    libinput.enable = true;
     autorandr.enable = true;
     fstrim.enable = true;
     fwupd.enable = true;

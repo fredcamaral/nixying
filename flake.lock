@@ -962,11 +962,11 @@
       "locked": {
         "lastModified": 1,
         "narHash": "sha256-NIim7EJ/hOv4A3qdRyyI5fwF9TliUehWeHI5QoISaYw=",
-        "path": "./pkgs/zen-browser-flake",
+        "path": "pkgs/zen-browser-flake",
         "type": "path"
       },
       "original": {
-        "path": "./pkgs/zen-browser-flake",
+        "path": "pkgs/zen-browser-flake",
         "type": "path"
       }
     }

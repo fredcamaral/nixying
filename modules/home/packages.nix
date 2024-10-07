@@ -4,7 +4,6 @@
   ...
 }: {
   home.packages = with pkgs; [
-    kanshi # Wayland monitor configuration tool
     font-manager
     okular
     clipman # clipboard manager
