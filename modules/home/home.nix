@@ -32,5 +32,6 @@
     ./zsh.nix # shell
     ./stylix.nix # theming
     ./kanshi.nix # monitor config
+    ./nixvim.nix
   ];
 }

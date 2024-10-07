@@ -32,45 +32,63 @@
     username = "fredamaral";
     mkSystem = import ./lib/mksystem.nix;
     mkHome = import ./lib/mkhome.nix;
+    supportedSystems = ["x86_64-linux"];
   in
-    flake-utils.lib.eachDefaultSystem (
-      system: let
-        pkgs = import nixpkgs {
-          inherit system;
-          config.allowUnfree = true;
-        };
-      in {
-        nixosConfigurations = {
-          lothlorien = mkSystem {
-            inherit system pkgs inputs username;
-            hostModule = ./hosts/lothlorien;
-            extraModules = [];
+    flake-utils.lib.eachSystem supportedSystems (system: let
+      pkgs = import nixpkgs {
+        inherit system;
+        config.allowUnfree = true;
+      };
+    in {
+      formatter = pkgs.alejandra;
+    })
+    // {
+      nixosConfigurations = {
+        lothlorien = mkSystem {
+          system = "x86_64-linux";
+          pkgs = import nixpkgs {
+            system = "x86_64-linux";
+            config.allowUnfree = true;
           };
-
-          lorinand = mkSystem {
-            inherit system pkgs inputs username;
-            hostModule = ./hosts/lorinand;
-            extraModules = [
-              inputs.nixos-hardware.nixosModules.lenovo-thinkpad-p1
-              inputs.nixos-hardware.nixosModules.common-hidpi
-            ];
-          };
-
-          beleriand = mkSystem {
-            inherit system pkgs inputs username;
-            hostModule = ./hosts/beleriand;
-            extraModules = [];
-          };
+          inherit inputs username;
+          hostModule = ./hosts/lothlorien;
+          extraModules = [];
         };
 
-        homeConfigurations =
-          builtins.mapAttrs
-          (hostname: nixosConfig:
-            mkHome {
-              inherit pkgs inputs username;
-              host = hostname;
-            })
-          self.nixosConfigurations;
-      }
-    );
+        lorinand = mkSystem {
+          system = "x86_64-linux";
+          pkgs = import nixpkgs {
+            system = "x86_64-linux";
+            config.allowUnfree = true;
+          };
+          inherit inputs username;
+          hostModule = ./hosts/lorinand;
+          extraModules = [
+            inputs.nixos-hardware.nixosModules.lenovo-thinkpad-p1
+            inputs.nixos-hardware.nixosModules.common-hidpi
+          ];
+        };
+
+        beleriand = mkSystem {
+          system = "x86_64-linux";
+          pkgs = import nixpkgs {
+            system = "x86_64-linux";
+            config.allowUnfree = true;
+          };
+          inherit inputs username;
+          hostModule = ./hosts/beleriand;
+          extraModules = [];
+        };
+      };
+
+      homeConfigurations =
+        builtins.mapAttrs
+        (hostname: nixosConfig:
+          mkHome {
+            pkgs = nixosConfig.pkgs;
+            inherit inputs username;
+            host = hostname;
+          })
+        self.nixosConfigurations;
+    };
 }

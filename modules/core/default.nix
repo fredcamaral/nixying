@@ -23,7 +23,6 @@
     ./user.nix
     ./wayland.nix
     ./virtualization.nix
-    ./nixvim.nix
     # ./secrets
   ];
 }
