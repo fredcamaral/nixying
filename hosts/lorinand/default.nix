@@ -45,7 +45,7 @@
 
   services = {
     libinput.enable = true;
-    autorandr.enable = true;
+    #autorandr.enable = true;
     fstrim.enable = true;
     fwupd.enable = true;
     thermald.enable = true;

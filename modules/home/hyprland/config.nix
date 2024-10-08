@@ -4,7 +4,7 @@
   ...
 }: {
   wayland.windowManager.hyprland = {
-    plugins = [inputs.hy3.packages.x86_64-linux.hy3];
+    #  plugins = [inputs.hy3.packages.x86_64-linux.hy3];
     settings = {
       # autostart
       exec-once = [

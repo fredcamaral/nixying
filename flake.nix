@@ -10,7 +10,7 @@
     };
     hypr-contrib.url = "github:hyprwm/contrib";
     hyprpicker.url = "github:hyprwm/hyprpicker";
-    hy3.url = "github:outfoxxed/hy3?ref=hl0.43.0";
+    #hy3.url = "github:outfoxxed/hy3?ref=hl0.43.0";
 
     alejandra.url = "github:kamadorueda/alejandra";
     agenix.url = "github:ryantm/agenix";
