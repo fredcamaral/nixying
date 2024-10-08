@@ -34,8 +34,22 @@
     {device = "/dev/disk/by-uuid/46283dd0-dbff-4927-97b9-16045e720c50";}
   ];
 
-  networking.useDHCP = lib.mkDefault true;
-  # networking.interfaces.wlp9s0f0.useDHCP = lib.mkDefault true;
+  networking = {
+    usePredictableInterfaceNames = true;
+    useDHCP = lib.mkDefault true;
+    # interfaces.wlp9s0f0.useDHCP = lib.mkDefault true;
+  };
+
+  systemd.network.links = {
+    "laptopWifi" = {
+      matchConfig.PermanentMACAddress = "10:5f:ad:77:82:0b";
+      linkConfig.Name = "laptopWifi";
+    };
+    "homeWired" = {
+      matchConfig.PermanentMACAddress = "38:7c:76:9b:87:25";
+      linkConfig.Name = "homeWired";
+    };
+  };
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
