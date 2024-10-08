@@ -18,7 +18,7 @@
         "swaync &"
         "hyprlock"
       ];
-
+      
       input = {
         kb_layout = "us";
         numlock_by_default = true;
@@ -33,7 +33,7 @@
 
       general = {
         "$mainMod" = "SUPER";
-        layout = "hy3";
+        layout = "dwindle";
         gaps_in = 1;
         gaps_out = 1;
         border_size = 3;
@@ -318,12 +318,12 @@
       # monitor=DP-2,2560x1440@59.95,2560x0,1
       # monitor=DP-3,2560x1440@59.95,0x0,1
 
-      workspace=1,monitor:eDP-1
+      workspace=1,monitor:DP-7
       workspace=2,monitor:DP-7
       workspace=3,monitor:DP-7
-      workspace=4,monitor:DP-7
-      workspace=5,monitor:DP-7
-      workspace=6,monitor:DP-7
+      workspace=4,monitor:eDP-1
+      workspace=5,monitor:eDP-1
+      workspace=6,monitor:eDP-1
 
       xwayland {
         force_zero_scaling = false

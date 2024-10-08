@@ -5,6 +5,7 @@
   ...
 }: {
   environment.systemPackages = with pkgs; [
+    bolt # CLI tool for managing NixOS configurations
     blueman
     todoist-electron
     zoom-us

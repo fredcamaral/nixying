@@ -44,8 +44,8 @@
   };
 
   services = {
+    hardware.bolt.enable = true;
     libinput.enable = true;
-    #autorandr.enable = true;
     fstrim.enable = true;
     fwupd.enable = true;
     thermald.enable = true;
@@ -74,7 +74,7 @@
     };
   };
 
-  powerManagement.cpuFreqGovernor = lib.mkDefault "performance";
+  powerManagement.cpuFreqGovernor = "performance";
 
   boot = {
     kernelModules = ["acpi_call"];

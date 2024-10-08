@@ -38,6 +38,7 @@
       "editor.inlineSuggest.suppressSuggestions" = true; # Enable inline suggestions
       "cody.chat.defaultLocation" = "editor"; #  Enable chat in editor
       "makefile.configureOnOpen" = true;
+      "git.autofetch" = true;
     };
 
     extensions = with pkgs.vscode-extensions;
