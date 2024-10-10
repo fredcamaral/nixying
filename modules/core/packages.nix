@@ -5,6 +5,12 @@
   ...
 }: {
   environment.systemPackages = with pkgs; [
+    atac  
+    tmux
+    tmuxinator
+    tmuxifier
+    tmuxp
+    postman
     bolt # CLI tool for managing NixOS configurations
     blueman
     todoist-electron

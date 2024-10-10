@@ -18,7 +18,7 @@
         "swaync &"
         "hyprlock"
       ];
-      
+
       input = {
         kb_layout = "us";
         numlock_by_default = true;
@@ -33,7 +33,7 @@
 
       general = {
         "$mainMod" = "SUPER";
-        layout = "dwindle";
+        layout = "master";
         gaps_in = 1;
         gaps_out = 1;
         border_size = 3;
@@ -64,9 +64,13 @@
       };
 
       master = {
-        new_status = "master";
-        special_scale_factor = 1;
-        no_gaps_when_only = false;
+        # new_status = "master";
+        # special_scale_factor = 1;
+        # no_gaps_when_only = true;
+        new_on_top = false;
+        no_gaps_when_only = true;
+        orientation = "center";
+        mfact = 0.4;
       };
 
       decoration = {
@@ -202,8 +206,8 @@
         ",XF86AudioStop, exec, playerctl stop"
 
         #laptop brightness
-        ",XF86MonBrightnessUp, exec, brightnessctl set 2%+"
-        ",XF86MonBrightnessDown, exec, brightnessctl set 2%-"
+        #",XF86MonBrightnessUp, exec, brightnessctl set 2%+"
+        #",XF86MonBrightnessDown, exec, brightnessctl set 2%-"
 
         "$mainMod, mouse_down, workspace, e-1"
         "$mainMod, mouse_up, workspace, e+1"
@@ -315,8 +319,6 @@
       monitor=eDP-1,3840x2400@60,0x0,2
       monitor=DP-7,5120x1440@60,-5120x0,1
       monitor=Unknown-1,disabled
-      # monitor=DP-2,2560x1440@59.95,2560x0,1
-      # monitor=DP-3,2560x1440@59.95,0x0,1
 
       workspace=1,monitor:DP-7
       workspace=2,monitor:DP-7

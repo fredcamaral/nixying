@@ -6,7 +6,7 @@
   programs.vscode = {
     enable = true; # Enable Visual Studio Code
     package = pkgs.vscode; # Specify the package to use for VS Code
-    mutableExtensionsDir = false; # Prevent extensions from being modified
+    #mutableExtensionsDir = false; # Prevent extensions from being modified
 
     userSettings = {
       "workbench.startupEditor" = "none"; # Disable startup editor
@@ -37,7 +37,7 @@
       "editor.renderControlCharacters" = false; # Disable control characters
       "editor.mouseWheelZoom" = true; # Enable mouse wheel zoom
       "editor.inlineSuggest.suppressSuggestions" = true; # Enable inline suggestions
-      "cody.chat.defaultLocation" = "editor"; #  Enable chat in editor
+      "cody.chat.defaultLocation" = "sidebar"; #  Enable chat in editor
       "makefile.configureOnOpen" = true;
       "git.autofetch" = true;
     };
