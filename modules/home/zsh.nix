@@ -89,8 +89,8 @@
       cdnix = "cd ~/repos/nixying";
       ns = "nom-shell --run zsh";
       nix-switch = "nh os switch";
-      home-switch = "home-manager switch --flake ~/repos/nixying/#fredamaral";
-      nix-update = "sudo nix-channel --update; nix-channel --update; sudo nixos-rebuild boot --flake ~/repos/nixying";
+      home-switch = "nh home switch";
+      nix-update = "nh os boot -u";
       nix-clean = "nh clean all --keep 5";
       nix-search = "nh search";
       nix-test = "nh os test";

@@ -1,88 +1,105 @@
-# system/modules/packages.nix
 {
   pkgs,
   inputs,
   ...
 }: {
   environment.systemPackages = with pkgs; [
-    atac  
-    tmux
-    tmuxinator
-    tmuxifier
-    tmuxp
-    postman
-    bolt # CLI tool for managing NixOS configurations
-    blueman
-    todoist-electron
-    zoom-us
-    bzip3
-    bzip2
-    home-manager
-    font-manager
-    okular
-    clipman # clipboard manager
-    eza # ls replacement
-    lazygit
-    lazydocker
-    libnotify
-    man-pages # extra man pages
-    openssl
-    pamixer # pulseaudio command line mixer
-    playerctl # controller for media players
-    qview # minimal image viewer
-    ripgrep # grep replacement
-    tldr
-    unzip
-    wl-clipboard # clipboard utils for wayland (wl-copy, wl-paste)
-    wget
-    yazi # terminal file manager
-    xdg-utils
-    libreoffice
-    pavucontrol # pulseaudio volume controle (GUI)
-    qalculate-gtk # calculator
-    vlc
-    python3
-    age # Tool for encrypting files
-    pigz # Parallel implementation of gzip for faster compression
-    unrar # Extraction utility for RAR archives
-    unzip # Extraction utility for ZIP archives
-    zip # Compressor/archiver for creating and modifying ZIP files
-    devenv # Development environment management tool for Nix
-    electron # Framework for building cross-platform desktop applications with web technologies
-    gcc # GNU Compiler Collection for various programming languages
-    gnumake # Build automation tool
-    hyperfine # Command-line benchmarking tool
-    nix-direnv # Fast loader and flake-aware nix-shell replacement for direnv
-    qbittorrent # Feature-rich BitTorrent client
-    logitech-udev-rules # Udev rules for Logitech devices
-    solaar # Device manager for Logitech peripherals
-    feh # Lightweight and fast image viewer
-    curl # Command-line tool for transferring data using various protocols
-    nmap # Network exploration tool and security scanner
-    nix-tree # Interactively browse dependency graphs of Nix derivations
-    calibre # E-book management application
+    # System utilities
+    age # Simple, modern file encryption tool
+    atac # Advanced top-like utility for system monitoring
+    bandwhich # Terminal bandwidth utilization tool
     bash # GNU Bourne-Again Shell
-    lsof # Utility to list open files
-    stress # Tool to impose load on and stress test systems
+    blueman # Bluetooth manager for GNOME
+    bolt # CLI tool for managing NixOS configurations
+    curl # Command-line tool for transferring data using various protocols
     du-dust # More intuitive version of du written in Rust
     duf # Disk Usage/Free Utility with colorful output
     fd # Simple, fast alternative to 'find'
     file # Utility to determine file types
+    font-manager # Font management application
+    gcc # GNU Compiler Collection for various programming languages
+    gnumake # Build automation tool
     gparted # Graphical disk partitioning tool
+    home-manager # Nix-based user environment management
+    hyperfine # Command-line benchmarking tool
+    libnotify # Library for sending desktop notifications
     lm_sensors # Tools for reading hardware sensors
+    logitech-udev-rules # Udev rules for Logitech devices
     lshw # Hardware lister to provide detailed information on the hardware configuration
-    neofetch # Fast, highly customizable system info script
-    pciutils # Set of programs for inspecting and manipulating configuration of PCI devices
-    usbutils # USB utilities (such as lsusb)
-    gvfs # Virtual filesystem implementation for GIO
-    kio-fuse # FUSE support for KIO
-    vimix-icon-theme # Icon theme for Linux
-    bandwhich # Terminal bandwidth utilization tool
+    lsof # Utility to list open files
+    man-pages # Extra man pages for Linux
     moreutils # Growing collection of the unix tools that nobody thought to write long ago
+    ncdu # Disk usage analyzer with ncurses interface
+    neofetch # Fast, highly customizable system info script
+    nmap # Network exploration tool and security scanner
+    openssl # Cryptography and SSL/TLS toolkit
+    pamixer # PulseAudio command-line mixer
+    pciutils # Set of programs for inspecting and manipulating configuration of PCI devices
+    pigz # Parallel implementation of gzip for faster compression
+    playerctl # Media player controller and library
+    ripgrep # Fast search tool (grep replacement)
+    solaar # Device manager for Logitech peripherals
+    stress # Tool to impose load on and stress test systems
+    tldr # Simplified and community-driven man pages
+    unrar # Extraction utility for RAR archives
+    unzip # Extraction utility for ZIP archives
+    usbutils # USB utilities (such as lsusb)
+    wget # Network utility to retrieve files from the Web
+    xdg-utils # Tools for desktop integration
+    zip # Compressor/archiver for creating and modifying ZIP files
+
+    # Development tools
+    devenv # Development environment management tool for Nix
+    electron # Framework for building cross-platform desktop applications with web technologies
+    nix-direnv # Fast loader and flake-aware nix-shell replacement for direnv
+    nix-tree # Interactively browse dependency graphs of Nix derivations
+    postman # API development environment
+
+    # Terminal utilities
+    eza # Modern replacement for ls
+    lazydocker # Simple terminal UI for docker commands
+    lazygit # Simple terminal UI for git commands
+    tmux # Terminal multiplexer
+    tmuxifier # Powerful session, window & pane management for tmux
+    tmuxinator # Manage complex tmux sessions easily
+    tmuxp # Tmux session manager
+    wl-clipboard # Clipboard utilities for Wayland
+    yazi # Terminal file manager
+
+    # Graphical applications
+    calibre # E-book management application
+    clipman # Clipboard manager
+    feh # Lightweight and fast image viewer
+    libreoffice # Office suite
+    okular # Universal document viewer
+    pavucontrol # PulseAudio volume control (GUI)
+    qalculate-gtk # Feature-rich desktop calculator
+    qbittorrent # Feature-rich BitTorrent client
+    qview # Minimal image viewer
+    todoist-electron # Electron-based Todoist client
+    vlc # Multimedia player and framework
+    zoom-us # Video conferencing tool
+
+    # Programming languages and runtimes
+    python3 # Python programming language interpreter
+
+    # Compression tools
+    bzip2 # High-quality data compressor
+    bzip3 # Improved compression algorithm
+
+    # Virtualization and containerization
     docker_27 # Platform for developing, shipping, and running applications in containers
 
+    # File system and storage
+    gvfs # Virtual filesystem implementation for GIO
+    kio-fuse # FUSE support for KIO
+
+    # Theming and customization
+    vimix-icon-theme # Icon theme for Linux
+
+    # Custom inputs
     inputs.alejandra.defaultPackage.${system}
-    inputs.zen-browser.packages.${system}.specific
     inputs.nixvim.packages.${system}.default
+    inputs.zen-browser.packages.${system}.specific
   ];
 }
