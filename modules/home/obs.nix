@@ -19,6 +19,7 @@
   home.packages = with pkgs; [
     # Tools for iPad integration
     scrcpy # Display and control your Android device
+    uxplay # Airplay screen mirroring
 
     # Video editing tools
     kdenlive

@@ -23,6 +23,7 @@
     ./user.nix
     ./wayland.nix
     ./virtualization.nix
+    ./printers.nix
     # ./secrets
   ];
 }

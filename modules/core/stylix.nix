@@ -13,7 +13,7 @@ in {
     # Set the theme polarity (dark or light)
     polarity = "dark";
 
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-frappe.yaml";
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/blueforest.yaml";
 
     # Configure cursor theme
     cursor = {
