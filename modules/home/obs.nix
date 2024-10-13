@@ -12,23 +12,22 @@
         obs-vkcapture
         obs-gstreamer
         obs-multi-rtmp
+        obs-ndi
       ];
     };
   };
 
   home.packages = with pkgs; [
-    # Tools for iPad integration
     scrcpy # Display and control your Android device
     uxplay # Airplay screen mirroring
-
-    # Video editing tools
+    v4l-utils # For webcam control
+    guvcview # Webcam tuning
+    gst_all_1.gst-plugins-good
+    gst_all_1.gst-plugins-bad
+    gst_all_1.gstreamer
+    gst_all_1.gst-vaapi
     kdenlive
     ffmpeg
-
-    # Screen recording
-    simplescreenrecorder
-
-    # Image editing
     gimp
     inkscape
   ];

@@ -1,6 +1,7 @@
 {
   host,
   config,
+  pkgs,
   ...
 }: {
   services = {
@@ -9,7 +10,22 @@
     dbus.enable = true;
     fstrim.enable = true;
     openssh.enable = true;
-    printing.enable = true;
+    printing = {
+      enable = true;
+      drivers = with pkgs; [
+        epson-escpr # Driver for Epson printers
+        hplip # Driver for HP printers
+        gutenprint # Additional high-quality printer drivers
+      ];
+      browsing = true;
+      defaultShared = true;
+    };
+    avahi = {
+      enable = true;
+      nssmdns4 = true;
+      openFirewall = false;
+      publish.enable = true;
+    };
 
     #tailscale = {
     #  enable = true;

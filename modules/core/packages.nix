@@ -4,6 +4,9 @@
   ...
 }: {
   environment.systemPackages = with pkgs; [
+    wineWowPackages.waylandFull # Wine is a compatibility layer for running Windows applications on Linux
+    woeusb # USB image writer
+
     # System utilities
     age # Simple, modern file encryption tool
     atac # Advanced top-like utility for system monitoring
