@@ -87,21 +87,6 @@
       percentageAction = 3;
       criticalPowerAction = "PowerOff";
     };
-    actkbd = {
-      enable = true;
-      bindings = [
-        {
-          keys = [224];
-          events = ["key"];
-          command = "${pkgs.light}/bin/light -U 2";
-        }
-        {
-          keys = [225];
-          events = ["key"];
-          command = "${pkgs.light}/bin/light -A 2";
-        }
-      ];
-    };
   };
 
   hardware = {
@@ -132,18 +117,6 @@
     cpuFreqGovernor = "conservative";
     powertop.enable = true;
   };
-
-  security.sudo.extraRules = [
-    {
-      users = ["fredamaral"];
-      commands = [
-        {
-          command = "${pkgs.light}/bin/light";
-          options = ["NOPASSWD"];
-        }
-      ];
-    }
-  ];
 
   systemd.network.links = {
     "laptopWifi" = {

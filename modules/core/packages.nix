@@ -7,6 +7,7 @@
     wineWowPackages.waylandFull # Wine is a compatibility layer for running Windows applications on Linux
     woeusb # USB image writer
     thinkfan # Fan control daemon
+    google-chrome # Google Chrome web browser
 
     # System utilities
     age # Simple, modern file encryption tool

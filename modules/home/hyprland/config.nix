@@ -63,8 +63,6 @@
       };
 
       master = {
-        # new_status = "master";
-        # special_scale_factor = 1;
         new_on_top = false;
         orientation = "center";
         mfact = 0.4;
@@ -203,8 +201,8 @@
         ",XF86AudioStop, exec, playerctl stop"
 
         #laptop brightness
-        #",XF86MonBrightnessUp, exec, brightnessctl set 2%+"
-        #",XF86MonBrightnessDown, exec, brightnessctl set 2%-"
+        ",XF86MonBrightnessUp, exec, brightnessctl set 2%+"
+        ",XF86MonBrightnessDown, exec, brightnessctl set 2%-"
 
         "$mainMod, mouse_down, workspace, e-1"
         "$mainMod, mouse_up, workspace, e+1"
