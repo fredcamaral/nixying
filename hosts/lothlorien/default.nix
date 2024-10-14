@@ -23,8 +23,16 @@
       };
     };
     shares = {
-      public = {
+      ness = {
         path = "/media/ness";
+        browseable = "yes";
+        "read only" = "no";
+        "guest ok" = "yes";
+        "create mask" = "0644";
+        "directory mask" = "0755";
+      };
+      limbo = {
+        path = "/media/limbo";
         browseable = "yes";
         "read only" = "no";
         "guest ok" = "yes";
