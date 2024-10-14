@@ -8,6 +8,7 @@
     woeusb # USB image writer
     thinkfan # Fan control daemon
     google-chrome # Google Chrome web browser
+    waveterm # Terminal-based terminal emulator
 
     # System utilities
     age # Simple, modern file encryption tool
