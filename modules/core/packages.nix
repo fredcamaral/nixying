@@ -6,6 +6,7 @@
   environment.systemPackages = with pkgs; [
     wineWowPackages.waylandFull # Wine is a compatibility layer for running Windows applications on Linux
     woeusb # USB image writer
+    thinkfan # Fan control daemon
 
     # System utilities
     age # Simple, modern file encryption tool

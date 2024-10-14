@@ -315,14 +315,16 @@
     extraConfig = ''
       monitor=eDP-1,3840x2400@60,0x0,2
       monitor=DP-7,5120x1440@60,-5120x0,1
+      monitor=DP-8,5120x1440@60,-5120x0,1
+      monitor=DP-9,5120x1440@60,-5120x0,1
       monitor=Unknown-1,disabled
 
-      workspace=1,monitor:DP-7
-      workspace=2,monitor:DP-7
-      workspace=3,monitor:DP-7
-      workspace=4,monitor:DP-7
-      workspace=5,monitor:DP-7
-      workspace=6,monitor:DP-7
+      workspace=1,monitor:DP-8
+      workspace=2,monitor:DP-8
+      workspace=3,monitor:DP-8
+      workspace=4,monitor:DP-8
+      workspace=5,monitor:DP-8
+      workspace=6,monitor:DP-8
       workspace=7,monitor:eDP-1
 
       xwayland {
