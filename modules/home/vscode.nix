@@ -6,7 +6,7 @@
   programs.vscode = {
     enable = true; # Enable Visual Studio Code
     package = pkgs.vscode; # Specify the package to use for VS Code
-    #mutableExtensionsDir = false; # Prevent extensions from being modified
+    mutableExtensionsDir = true; # Prevent extensions from being modified
 
     userSettings = {
       "workbench.startupEditor" = "none"; # Disable startup editor
