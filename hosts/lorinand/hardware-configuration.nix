@@ -40,7 +40,26 @@
       fsType = "btrfs";
     };
     "/mnt/ness" = {
-      device = "//21.26.7.131/public";
+      device = "//21.26.7.131/ness";
+      fsType = "cifs";
+      options = [
+        "x-systemd.automount"
+        "noauto"
+        "x-systemd.idle-timeout=60"
+        "x-systemd.device-timeout=5s"
+        "x-systemd.mount-timeout=5s"
+        "user"
+        "users"
+        "guest"
+        "uid=1000"
+        "gid=100"
+        "iocharset=utf8"
+        "rw"
+        "vers=3.0"
+      ];
+    };
+    "/mnt/limbo" = {
+      device = "//21.26.7.131/limbo";
       fsType = "cifs";
       options = [
         "x-systemd.automount"
