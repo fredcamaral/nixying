@@ -1386,17 +1386,14 @@
         "nixpkgs": "nixpkgs_10"
       },
       "locked": {
-        "lastModified": 1728903655,
-        "narHash": "sha256-z/cCjZiY6WZDISrDNlFM0BkCwnuJWce9ee4bkDqEDq4=",
-        "owner": "fredcamaral",
-        "repo": "zen-browser-flake",
-        "rev": "9436e68b6ad9cf058db1e68f7303f6aa668fb4c3",
-        "type": "github"
+        "lastModified": 1,
+        "narHash": "sha256-kU3BfpkgHKv9R/JRuJ8d7V9fUMyUqgu2fhbR1TzJV+4=",
+        "path": "flakes/zen-browser",
+        "type": "path"
       },
       "original": {
-        "owner": "fredcamaral",
-        "repo": "zen-browser-flake",
-        "type": "github"
+        "path": "flakes/zen-browser",
+        "type": "path"
       }
     }
   },
