@@ -11,15 +11,17 @@
   services.samba = {
     enable = true;
     securityType = "user";
-    extraConfig = ''
-      workgroup = WORKGROUP
-      server string = Samba Server
-      server role = standalone server
-      log file = /var/log/samba/log.%m
-      max log size = 50
-      dns proxy = no
-      map to guest = bad user
-    '';
+    settings = {
+      global = {
+        workgroup = "WORKGROUP";
+        "server string" = "Samba Server";
+        "server role" = "standalone server";
+        "log file" = "/var/log/samba/log.%m";
+        "max log size" = 50;
+        "dns proxy" = "no";
+        "map to guest" = "bad user";
+      };
+    };
     shares = {
       public = {
         path = "/media/ness";
