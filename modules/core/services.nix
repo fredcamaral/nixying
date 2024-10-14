@@ -23,7 +23,7 @@
     avahi = {
       enable = true;
       nssmdns4 = true;
-      openFirewall = false;
+      openFirewall = true;
       publish.enable = true;
     };
 

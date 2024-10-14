@@ -15,7 +15,7 @@
     agenix.url = "github:ryantm/agenix";
     stylix.url = "github:danth/stylix";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
-    zen-browser.url = "github:MarceColl/zen-browser-flake";
+    zen-browser.url = "github:fredcamaral/zen-browser-flake";
     nixvim.url = "github:MikaelFangel/nixvim-config";
   };
 
