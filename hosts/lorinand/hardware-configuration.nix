@@ -39,6 +39,25 @@
       device = "/dev/disk/by-uuid/9e538b1e-01f8-4d5e-a5a4-0141a9fd2f11";
       fsType = "btrfs";
     };
+    "/mnt/ness" = {
+      device = "//21.26.7.131/public";
+      fsType = "cifs";
+      options = [
+        "x-systemd.automount"
+        "noauto"
+        "x-systemd.idle-timeout=60"
+        "x-systemd.device-timeout=5s"
+        "x-systemd.mount-timeout=5s"
+        "user"
+        "users"
+        "guest"
+        "uid=1000"
+        "gid=100"
+        "iocharset=utf8"
+        "rw"
+        "vers=3.0"
+      ];
+    };
   };
 
   swapDevices = [{device = "/dev/disk/by-uuid/46283dd0-dbff-4927-97b9-16045e720c50";}];

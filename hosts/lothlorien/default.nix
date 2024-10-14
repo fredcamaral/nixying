@@ -34,6 +34,9 @@
     };
   };
 
+  networking.firewall.allowedTCPPorts = [445 139];
+  networking.firewall.allowedUDPPorts = [137 138];
+
   hardware = {
     amdgpu.amdvlk = {
       enable = true;
