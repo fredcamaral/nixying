@@ -9,6 +9,7 @@
     thinkfan # Fan control daemon
     google-chrome # Google Chrome web browser
     waveterm # Terminal-based terminal emulator
+    cifs-utils # Utilities for managing CIFS/SMB file systems
 
     # System utilities
     age # Simple, modern file encryption tool

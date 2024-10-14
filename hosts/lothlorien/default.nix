@@ -10,10 +10,10 @@
 
   services.samba = {
     enable = true;
-    securityType = "user";
     settings = {
       global = {
         workgroup = "WORKGROUP";
+        security = "user";
         "server string" = "Samba Server";
         "server role" = "standalone server";
         "log file" = "/var/log/samba/log.%m";
