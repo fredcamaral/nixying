@@ -10,6 +10,7 @@
     google-chrome # Google Chrome web browser
     waveterm # Terminal-based terminal emulator
     cifs-utils # Utilities for managing CIFS/SMB file systems
+    bash # GNU Bourne-Again Shell
 
     # System utilities
     age # Simple, modern file encryption tool
@@ -74,7 +75,7 @@
     yazi # Terminal file manager
 
     # Graphical applications
-    calibre # E-book management application
+    # calibre # E-book management application
     clipman # Clipboard manager
     feh # Lightweight and fast image viewer
     libreoffice # Office suite
