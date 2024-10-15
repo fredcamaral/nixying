@@ -33,7 +33,7 @@
     ./xdg-mimes.nix # xdg config
     ./zsh.nix # shell
     ./stylix.nix # theming
-    ./obs.nix # obs
+    # ./obs.nix # obs
     # ./kanshi.nix # monitor config
   ];
 }
