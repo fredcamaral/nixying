@@ -26,8 +26,16 @@
         float_switch_override_focus = 0;
         mouse_refocus = 0;
         sensitivity = 0;
+        focus_on_close = 1;
         touchpad = {
           natural_scroll = true;
+          disable_while_typing = true;
+          clickfinger_behavior = true;
+          middle_button_emulation = true;
+          tap-to-click = true;
+          drag_lock = true;
+          tap-and-drag = false;
+          scroll_factor = 1.0;
         };
       };
 
@@ -143,6 +151,7 @@
         "$mainMod, W, exec, wallpaper-picker"
         "$mainMod, N, exec, swaync-client -t -sw"
         "$mainMod SHIFT, W, exec, vm-start"
+        "CTRL ALT, Delete, exec, hyprctl dispatch exit"
 
         # screenshot
         "$mainMod, Print, exec, grimblast --notify --cursor --freeze save area ~/Pictures/$(date +'%Y-%m-%d-At-%Ih%Mm%Ss').png"
