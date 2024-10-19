@@ -73,7 +73,7 @@
       master = {
         new_on_top = false;
         orientation = "center";
-        mfact = 0.4;
+        mfact = 0.46;
       };
 
       decoration = {
