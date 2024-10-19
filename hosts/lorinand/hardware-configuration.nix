@@ -156,16 +156,5 @@
     powertop.enable = true;
   };
 
-  systemd.network.links = {
-    "laptopWifi" = {
-      matchConfig.PermanentMACAddress = "10:5f:ad:77:82:0b";
-      linkConfig.Name = "laptopWifi";
-    };
-    "homeWired" = {
-      matchConfig.PermanentMACAddress = "38:7c:76:9b:87:25";
-      linkConfig.Name = "homeWired";
-    };
-  };
-
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
 }
