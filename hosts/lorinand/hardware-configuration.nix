@@ -105,7 +105,7 @@
     power-profiles-daemon = {
       enable = false;
     };
-    fprintd.enable = false;
+    fprintd.enable = lib.mkDefault false;
     tlp = {
       enable = true;
       settings = {

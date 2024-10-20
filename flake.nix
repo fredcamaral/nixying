@@ -19,9 +19,8 @@
     alejandra.url = "github:kamadorueda/alejandra";
     agenix.url = "github:ryantm/agenix";
     stylix.url = "github:danth/stylix";
-    nixos-hardware.url = "github:NixOS/nixos-hardware";
+    hardware.url = "github:NixOS/nixos-hardware";
     zen-browser.url = "path:flakes/zen-browser";
-    nixvim.url = "github:MikaelFangel/nixvim-config";
     catppuccin.url = "github:catppuccin/nix";
     spicetify-nix = {
       url = "github:Gerg-L/spicetify-nix";
@@ -29,12 +28,14 @@
     };
   };
 
-  outputs = inputs @ {
+  outputs = {
     self,
     nixpkgs,
     home-manager,
+    hardware,
     ...
-  }: let
+  } @ inputs: let
+    inherit (self) outputs;
     users = {
       fredamaral = {
         email = "fred@fredamaral.com";
@@ -43,6 +44,7 @@
         name = "fredamaral";
       };
     };
+    username = "fredamaral";
     mkSystem = import ./lib/mksystem.nix;
     mkHome = import ./lib/mkhome.nix;
     system = "x86_64-linux";
@@ -64,8 +66,8 @@
         inherit system pkgs inputs username;
         hostModule = ./hosts/lorinand;
         extraModules = [
-          inputs.nixos-hardware.nixosModules.lenovo-thinkpad-p1
-          inputs.nixos-hardware.nixosModules.common-hidpi
+          inputs.hardware.nixosModules.lenovo-thinkpad-p1
+          inputs.hardware.nixosModules.common-hidpi
         ];
       };
 
