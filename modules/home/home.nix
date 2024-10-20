@@ -3,6 +3,7 @@
   pkgs,
   username,
   host,
+  outputs,
   ...
 }: {
   home = {
@@ -11,11 +12,8 @@
     stateVersion = "24.05";
   };
   programs.home-manager.enable = true;
+  systemd.user.startServices = "sd-switch";
   nixpkgs = {
-    overlays = [
-      outputs.overlays.unstable-packages
-    ];
-
     config = {
       allowUnfree = true;
     };

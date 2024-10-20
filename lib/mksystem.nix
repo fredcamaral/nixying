@@ -2,6 +2,8 @@
   system,
   pkgs,
   inputs,
+  outputs,
+  users,
   username,
   hostModule,
   extraModules ? [],
@@ -16,7 +18,8 @@ inputs.nixpkgs.lib.nixosSystem {
     ]
     ++ extraModules;
   specialArgs = {
-    inherit inputs username;
+    inherit inputs outputs username;
     host = builtins.baseNameOf hostModule;
+    userConfig = users.${username};
   };
 }

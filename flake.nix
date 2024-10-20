@@ -40,7 +40,7 @@
       fredamaral = {
         email = "fred@fredamaral.com";
         fullName = "Fred Amaral";
-        # gitKey = "C5810093";
+        gitKey = "3421573D5D197766";
         name = "fredamaral";
       };
     };
@@ -57,13 +57,13 @@
 
     nixosConfigurations = {
       lothlorien = mkSystem {
-        inherit system pkgs inputs username;
+        inherit system pkgs inputs outputs users username;
         hostModule = ./hosts/lothlorien;
         extraModules = [];
       };
 
       lorinand = mkSystem {
-        inherit system pkgs inputs username;
+        inherit system pkgs inputs outputs users username;
         hostModule = ./hosts/lorinand;
         extraModules = [
           inputs.hardware.nixosModules.lenovo-thinkpad-p1
@@ -72,7 +72,7 @@
       };
 
       beleriand = mkSystem {
-        inherit system pkgs inputs username;
+        inherit system pkgs inputs outputs users username;
         hostModule = ./hosts/beleriand;
         extraModules = [];
       };
@@ -83,13 +83,13 @@
       (hostname: nixosConfig:
         mkHome {
           pkgs = nixosConfig.pkgs;
-          inherit inputs username;
+          inherit inputs outputs users username;
           host = hostname;
         })
       self.nixosConfigurations
       // {
         "${username}" = mkHome {
-          inherit pkgs inputs username;
+          inherit pkgs inputs outputs users username;
           host = "lorinand";
         };
       };

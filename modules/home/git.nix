@@ -1,4 +1,8 @@
-{pkgs, ...}: let
+{
+  pkgs,
+  userConfig,
+  ...
+}: let
   gh-clone-org = pkgs.stdenv.mkDerivation {
     pname = "gh-clone-org";
     version = "main";
@@ -35,7 +39,7 @@ in {
 
     delta = {
       enable = true;
-      catppuccin.enable = true;
+      # catppuccin.enable = true;
       options = {
         keep-plus-minus-markers = true;
         light = false;

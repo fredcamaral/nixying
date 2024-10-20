@@ -1,4 +1,8 @@
-{inputs, ...}: {
+{
+  inputs,
+  pkgs,
+  ...
+}: {
   imports = [
     ./hyprland.nix
     ./config.nix
@@ -8,14 +12,14 @@
   ];
 
   # List of Hyprland specific packages
-  environment.systemPackages = with pkgs; [
+  home.packages = with pkgs; [
     gnome-text-editor
-    gnome.file-roller # archive manager
-    gnome.gnome-calculator
-    gnome.nautilus # file manager
-    gnome.pomodoro
-    gnome.seahorse # keyring manager
-    gnome.totem # Video player
+    file-roller # archive manager
+    gnome-calculator
+    nautilus # file manager
+    gnome-pomodoro
+    seahorse # keyring manager
+    totem # Video player
     loupe # image viewer
 
     brightnessctl
