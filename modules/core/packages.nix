@@ -8,7 +8,6 @@
     woeusb # USB image writer
     google-chrome # Google Chrome web browser
     cifs-utils # Utilities for managing CIFS/SMB file systems
-    bash # GNU Bourne-Again Shell
     nodejs_22
 
     # System utilities
@@ -17,7 +16,6 @@
     bandwhich # Terminal bandwidth utilization tool
     bash # GNU Bourne-Again Shell
     blueman # Bluetooth manager for GNOME
-    bolt # CLI tool for managing NixOS configurations
     curl # Command-line tool for transferring data using various protocols
     du-dust # More intuitive version of du written in Rust
     duf # Disk Usage/Free Utility with colorful output
@@ -37,7 +35,6 @@
     man-pages # Extra man pages for Linux
     moreutils # Growing collection of the unix tools that nobody thought to write long ago
     ncdu # Disk usage analyzer with ncurses interface
-    neofetch # Fast, highly customizable system info script
     nmap # Network exploration tool and security scanner
     openssl # Cryptography and SSL/TLS toolkit
     pamixer # PulseAudio command-line mixer
@@ -65,23 +62,15 @@
     # Terminal utilities
     eza # Modern replacement for ls
     lazydocker # Simple terminal UI for docker commands
-    lazygit # Simple terminal UI for git commands
-    tmux # Terminal multiplexer
-    tmuxifier # Powerful session, window & pane management for tmux
-    tmuxinator # Manage complex tmux sessions easily
-    tmuxp # Tmux session manager
     wl-clipboard # Clipboard utilities for Wayland
     yazi # Terminal file manager
 
     # Graphical applications
-    # calibre # E-book management application
     clipman # Clipboard manager
     feh # Lightweight and fast image viewer
-    libreoffice # Office suite
     okular # Universal document viewer
     pavucontrol # PulseAudio volume control (GUI)
     qalculate-gtk # Feature-rich desktop calculator
-    qbittorrent # Feature-rich BitTorrent client
     qview # Minimal image viewer
     todoist-electron # Electron-based Todoist client
     vlc # Multimedia player and framework

@@ -8,12 +8,12 @@ in {
     enable = true;
 
     # Set the wallpaper image
-    image = ../../wallpapers/minimalist-fluid.png;
+    image = ../../wallpapers/white-path.jpg;
 
     # Set the theme polarity (dark or light)
     polarity = "dark";
 
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/da-one-ocean.yaml";
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/ayu-dark.yaml";
 
     # Configure cursor theme
     cursor = {

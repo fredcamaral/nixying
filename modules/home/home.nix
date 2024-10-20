@@ -11,7 +11,6 @@
     stateVersion = "24.05";
   };
   programs.home-manager.enable = true;
-  # Nixpkgs configuration
   nixpkgs = {
     overlays = [
       outputs.overlays.unstable-packages
@@ -22,13 +21,15 @@
     };
   };
 
-  # Catpuccin flavor and accent
-  catppuccin = {
-    flavor = "macchiato";
-    accent = "lavender";
-  };
-
   imports = [
+    ./atuin.nix
+    ./bottom.nix
+    ./go.nix
+    ./gpg.nix
+    ./lazygit.nix
+    ./spicetify.nix
+    ./tmux.nix
+    ./zoom.nix
     ./bat.nix # better cat command
     ./btop.nix # resouces monitor
     ./cava.nix # audio visualizer
