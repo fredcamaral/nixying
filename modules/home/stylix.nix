@@ -56,9 +56,9 @@ in {
     # Set opacity levels for different contexts
     opacity = {
       applications = 0.95;
-      desktop = 0.85;
-      popups = 0.75;
-      terminal = 0.75;
+      desktop = 0.90;
+      popups = 0.90;
+      terminal = 0.90;
     };
   };
 }
