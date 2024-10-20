@@ -11,6 +11,22 @@
     stateVersion = "24.05";
   };
   programs.home-manager.enable = true;
+  # Nixpkgs configuration
+  nixpkgs = {
+    overlays = [
+      outputs.overlays.unstable-packages
+    ];
+
+    config = {
+      allowUnfree = true;
+    };
+  };
+
+  # Catpuccin flavor and accent
+  catppuccin = {
+    flavor = "macchiato";
+    accent = "lavender";
+  };
 
   imports = [
     ./bat.nix # better cat command

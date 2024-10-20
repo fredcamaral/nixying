@@ -49,6 +49,7 @@
     docker = {
       enable = true;
       rootless.enable = true;
+      rootless.setSocketVariable = true;
       autoPrune.enable = true;
     };
 

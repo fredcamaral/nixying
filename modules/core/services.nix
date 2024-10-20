@@ -10,6 +10,9 @@
     dbus.enable = true;
     fstrim.enable = true;
     openssh.enable = true;
+    devmon.enable = true;
+    locate.enable = true;
+    locate.localuser = null;
     printing = {
       enable = true;
       drivers = with pkgs; [
@@ -33,18 +36,6 @@
     #    if (host == "megaman")
     #    then config.age.secrets.megaman-tailscale-auth.path
     #    else config.age.secrets.bomberman-tailscale-auth.path;
-    #};
-
-    #navidrome = {
-    #  enable = true;
-    #  openFirewall = true;
-    #  settings = {
-    #    Port = 4533;
-    #    MusicFolder = "/media/limbo/music";
-    #    DataFolder = "/media/limbo/navidrome/data";
-    #    CacheFolder = "/media/limbo/navidrome/cache";
-    #    EnableExternalServices = true;
-    #  };
     #};
   };
   services.logind.extraConfig = ''

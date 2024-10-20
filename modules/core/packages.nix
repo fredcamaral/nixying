@@ -96,6 +96,7 @@
 
     # Virtualization and containerization
     docker_27 # Platform for developing, shipping, and running applications in containers
+    docker-compose
 
     # File system and storage
     gvfs # Virtual filesystem implementation for GIO

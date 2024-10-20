@@ -19,9 +19,14 @@
     alejandra.url = "github:kamadorueda/alejandra";
     agenix.url = "github:ryantm/agenix";
     stylix.url = "github:danth/stylix";
-    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+    nixos-hardware.url = "github:NixOS/nixos-hardware";
     zen-browser.url = "path:flakes/zen-browser";
     nixvim.url = "github:MikaelFangel/nixvim-config";
+    catppuccin.url = "github:catppuccin/nix";
+    spicetify-nix = {
+      url = "github:Gerg-L/spicetify-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = inputs @ {
@@ -30,7 +35,14 @@
     home-manager,
     ...
   }: let
-    username = "fredamaral";
+    users = {
+      fredamaral = {
+        email = "fred@fredamaral.com";
+        fullName = "Fred Amaral";
+        # gitKey = "C5810093";
+        name = "fredamaral";
+      };
+    };
     mkSystem = import ./lib/mksystem.nix;
     mkHome = import ./lib/mkhome.nix;
     system = "x86_64-linux";

@@ -18,22 +18,30 @@ in {
   programs.git = {
     enable = true;
 
-    userName = "Fred Amaral";
-    userEmail = "fred@fredamaral.com.br";
+    userName = userConfig.fullName;
+    userEmail = userConfig.email;
+    signing = {
+      key = userConfig.gitKey;
+      signByDefault = true;
+    };
 
     extraConfig = {
       init.defaultBranch = "main";
       credential.helper = "store";
       merge.conflictstyle = "diff3";
       diff.colorMoved = "default";
+      pull.rebase = "true";
     };
 
     delta = {
       enable = true;
+      catppuccin.enable = true;
       options = {
+        keep-plus-minus-markers = true;
+        light = false;
         line-numbers = true;
-        # side-by-side = true;
         navigate = true;
+        width = 280;
       };
     };
   };

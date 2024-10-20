@@ -102,13 +102,36 @@
     fstrim.enable = true;
     fwupd.enable = true;
     thermald.enable = true;
+    power-profiles-daemon = {
+      enable = false;
+    };
+    fprintd.enable = false;
     tlp = {
       enable = true;
       settings = {
-        START_CHARGE_THRESH_BAT0 = 75;
-        STOP_CHARGE_THRESH_BAT0 = 80;
         CPU_SCALING_GOVERNOR_ON_AC = "performance";
-        CPU_SCALING_GOVERNOR_ON_BAT = "conservative";
+        CPU_SCALING_GOVERNOR_ON_BAT = "powersave";
+
+        CPU_ENERGY_PERF_POLICY_ON_AC = "performance";
+        CPU_ENERGY_PERF_POLICY_ON_BAT = "power";
+
+        PLATFORM_PROFILE_ON_AC = "performance";
+        PLATFORM_PROFILE_ON_BAT = "low-power";
+
+        # USB_EXCLUDE_BTUSB = 1;
+
+        # RADEON_DPM_PERF_LEVEL_ON_BAT = "low";
+
+        # DISK_IOSCHED = ["none"];
+
+        # Battery charge thresholds for office usage
+        START_CHARGE_THRESH_BAT0 = 40;
+        STOP_CHARGE_THRESH_BAT0 = 50;
+
+        # Battery charge thresholds for on-road usage
+        # START_CHARGE_THRESH_BAT0 = 85;
+        # STOP_CHARGE_THRESH_BAT0 = 90;
+
         RUNTIME_PM_ON_AC = "auto";
         RUNTIME_PM_ON_BAT = "auto";
       };
