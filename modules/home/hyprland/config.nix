@@ -321,18 +321,17 @@
 
     extraConfig = ''
       monitor=eDP-1,3840x2400@60,0x0,2
-      monitor=DP-7,5120x1440@60,-5120x0,1
-      monitor=DP-8,5120x1440@60,-5120x0,1
+      monitor=DP-8,3840x2160@60,-2560x-1440,1.5
       monitor=DP-9,5120x1440@60,-5120x0,1
       monitor=Unknown-1,disabled
 
-      workspace=1,monitor:DP-7
-      workspace=2,monitor:DP-7
-      workspace=3,monitor:DP-7
-      workspace=4,monitor:DP-7
-      workspace=5,monitor:DP-7
-      workspace=6,monitor:DP-7
-      workspace=7,monitor:eDP-1
+      workspace=1,monitor:DP-9
+      workspace=2,monitor:DP-9
+      workspace=3,monitor:DP-9
+      workspace=4,monitor:DP-9
+
+      workspace=5,monitor:DP-8
+      workspace=6,monitor:eDP-1
 
       xwayland {
         force_zero_scaling = false

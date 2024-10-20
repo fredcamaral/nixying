@@ -60,15 +60,16 @@ in {
       format = "{icon}";
       on-click = "activate";
       format-icons = {
-        "1" = "I";
-        "2" = "II";
-        "3" = "III";
-        "4" = "IV";
-        "5" = "V";
-        "6" = "VI";
+        "1" = "1:Main";
+        "2" = "2:Code:Nix";
+        "3" = "3:Code:Work";
+        "4" = "4:Others";
+        "5" = "5:Docker";
+        "6" = "6:btop";
         "7" = "VII";
         "8" = "VIII";
         "9" = "IX";
+        "10" = "X";
         sort-by-number = true;
       };
       persistent-workspaces = {
@@ -78,7 +79,7 @@ in {
         "4" = [];
         "5" = [];
         "6" = [];
-        "7" = [];
+        # "7" = [];
         # "8" = [];
         # "9" = [];
       };
