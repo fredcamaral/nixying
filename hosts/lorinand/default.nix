@@ -1,4 +1,9 @@
-{...}: {
+{
+  lib,
+  config,
+  pkgs,
+  ...
+}: {
   imports = [
     ./hardware-configuration.nix
     ./../../modules/core
@@ -8,8 +13,6 @@
     usePredictableInterfaceNames = true;
     useDHCP = lib.mkDefault true;
   };
-
-  environment.localBinPath = true;
 
   environment = {
     systemPackages = with pkgs; [acpi brightnessctl light glxinfo];
