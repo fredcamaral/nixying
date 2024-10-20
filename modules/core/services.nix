@@ -10,6 +10,7 @@
     dbus.enable = true;
     fstrim.enable = true;
     openssh.enable = true;
+    blueman.enable = true;
     devmon.enable = true;
     locate.enable = true;
     locate.localuser = null;
