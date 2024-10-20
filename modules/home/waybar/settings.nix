@@ -31,10 +31,11 @@ in {
       "hyprland/workspaces"
     ];
     modules-center = [
-      "hyprland/window"
+      # "hyprland/window"
     ];
     modules-right = [
       "cpu"
+      "temperature"
       "memory"
       "disk"
       "pulseaudio"
@@ -102,7 +103,7 @@ in {
       interval = 2;
     };
     disk = {
-      # path = "/";
+      path = "/home";
       format = "<span foreground='${orange}'>󰋊 </span>{percentage_used}%";
       interval = 60;
     };
@@ -110,9 +111,16 @@ in {
       format = "󰖯 {}";
       max-length = 100;
     };
+    "temperature" = {
+      thermal-zone = 2;
+      hwmon-path = "/sys/class/hwmon/hwmon2/temp1_input";
+      critical-threshold = 80;
+      format-critical = " {temperatureC}°C";
+      format = " {temperatureC}°C";
+    };
     network = {
       format-wifi = "<span foreground='${magenta}'> </span> {signalStrength}%";
-      format-ethernet = "<span foreground='${magenta}'>󰀂 </span>";
+      format-ethernet = "<span foreground='${magenta}'>󰀂 {ifname}</span>";
       tooltip-format = "Connected to {essid} {ifname} via {gwaddr}";
       format-linked = "{ifname} (No IP)";
       format-disconnected = "<span foreground='${magenta}'>󰖪 </span>";
