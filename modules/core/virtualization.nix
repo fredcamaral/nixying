@@ -50,7 +50,7 @@
       enable = true;
       rootless.enable = true;
       rootless.setSocketVariable = true;
-      autoPrune.enable = true;
+      # autoPrune.enable = true;
     };
 
     spiceUSBRedirection.enable = true;

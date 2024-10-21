@@ -320,7 +320,7 @@
     };
 
     extraConfig = ''
-      monitor=eDP-1,3840x2400@60,0x0,2
+      monitor=eDP-1,3840x2400@60,0x0,1.5
       monitor=DP-8,3840x2160@60,-2560x-1440,1.5
       monitor=DP-9,5120x1440@60,-5120x0,1
       monitor=Unknown-1,disabled
