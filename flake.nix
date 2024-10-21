@@ -59,7 +59,11 @@
       lothlorien = mkSystem {
         inherit system pkgs inputs outputs users username;
         hostModule = ./hosts/lothlorien;
-        extraModules = [];
+        extraModules = [
+          inputs.hardware.nixosModules.common-cpu-intel
+          inputs.hardware.nixosModules.common-gpu-amd
+          inputs.hardware.nixosModules.common-hidpi
+        ];
       };
 
       lorinand = mkSystem {

@@ -307,6 +307,7 @@
         "float,class:^(confirmreset)$"
         "float,title:^(Open File)$"
         "float,title:^(File Upload)$"
+        "float,title:^(Open Folder)$"
         "float,title:^(branchdialog)$"
         "float,title:^(Confirm to replace files)$"
         "float,title:^(File Operation Progress)$"
@@ -320,18 +321,21 @@
     };
 
     extraConfig = ''
-      monitor=eDP-1,3840x2400@60,0x0,1.5
-      monitor=DP-8,3840x2160@60,-2560x-1440,1.5
-      monitor=DP-9,5120x1440@60,-5120x0,1
+      monitor=DP-1,5120x1440@120,0x0,1
+      monitor=DP-2,3840x2160@60,-1280x-1440,1.5
+      monitor=DP-3,3840x2160@60,2560x-1440,1.5
       monitor=Unknown-1,disabled
 
-      workspace=1,monitor:DP-9
-      workspace=2,monitor:DP-9
-      workspace=3,monitor:DP-9
-      workspace=4,monitor:DP-9
+      workspace=1,monitor:DP-1
+      workspace=2,monitor:DP-1
+      workspace=3,monitor:DP-1
+      workspace=4,monitor:DP-1
 
-      workspace=5,monitor:DP-8
-      workspace=6,monitor:eDP-1
+      workspace=5,monitor:DP-2
+      workspace=6,monitor:DP-2
+
+      workspace=7,monitor:DP-3
+      workspace=8,monitor:DP-3
 
       xwayland {
         force_zero_scaling = false

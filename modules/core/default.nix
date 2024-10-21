@@ -8,6 +8,10 @@
 }: {
   imports = [
     ./bootloader.nix
+    ./gaming.nix
+    ./ollama.nix
+    ./i18n.nix
+    ./settings.nix
     ./fonts.nix
     ./hardware.nix
     ./network.nix

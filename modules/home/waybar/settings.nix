@@ -19,7 +19,7 @@
   };
 in {
   programs.waybar.settings.mainBar = with custom; {
-    position = "bottom";
+    position = "top";
     layer = "top";
     height = 30;
     margin-top = 0;
@@ -62,13 +62,13 @@ in {
       on-click = "activate";
       format-icons = {
         "1" = "1:Main";
-        "2" = "2:Code:Nix";
-        "3" = "3:Code:Work";
-        "4" = "4:Others";
+        "2" = "2:Nix";
+        "3" = "3:Work";
+        "4" = "4:Work";
         "5" = "5:Docker";
         "6" = "6:btop";
-        "7" = "VII";
-        "8" = "VIII";
+        "7" = "7:Git";
+        "8" = "8:Others";
         "9" = "IX";
         "10" = "X";
         sort-by-number = true;
@@ -80,8 +80,8 @@ in {
         "4" = [];
         "5" = [];
         "6" = [];
-        # "7" = [];
-        # "8" = [];
+        "7" = [];
+        "8" = [];
         # "9" = [];
       };
     };
