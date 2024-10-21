@@ -1,10 +1,11 @@
 {
-  pkgs,
   inputs,
   outputs,
+  system,
+  pkgs,
   users,
   username,
-  host,
+  ...
 }:
 inputs.home-manager.lib.homeManagerConfiguration {
   inherit pkgs;
@@ -13,7 +14,7 @@ inputs.home-manager.lib.homeManagerConfiguration {
     inputs.stylix.homeManagerModules.stylix
   ];
   extraSpecialArgs = {
-    inherit inputs outputs username host;
+    inherit inputs outputs username;
     userConfig = users.${username};
   };
 }

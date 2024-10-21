@@ -7,6 +7,7 @@
   username,
   hostModule,
   extraModules ? [],
+  ...
 }:
 inputs.nixpkgs.lib.nixosSystem {
   inherit system;

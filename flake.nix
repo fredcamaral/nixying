@@ -36,17 +36,17 @@
     ...
   } @ inputs: let
     inherit (self) outputs;
-    users = {
-      fredamaral = {
-        email = "fred@fredamaral.com";
-        fullName = "Fred Amaral";
-        gitKey = "3421573D5D197766";
-        name = "fredamaral";
-      };
-    };
     username = "fredamaral";
     mkSystem = import ./lib/mksystem.nix;
     mkHome = import ./lib/mkhome.nix;
+    users = {
+      fredamaral = {
+        email = "fred@fredamaral.com.br";
+        fullName = "Fred Amaral";
+        gitKey = "0xDE2B547B210A28A4";
+        name = "fredamaral";
+      };
+    };
     system = "x86_64-linux";
     pkgs = import nixpkgs {
       inherit system;
@@ -96,13 +96,13 @@
       (hostname: nixosConfig:
         mkHome {
           pkgs = nixosConfig.pkgs;
-          inherit inputs outputs users username;
+          inherit system inputs outputs users username;
           host = hostname;
         })
       self.nixosConfigurations
       // {
         "${username}" = mkHome {
-          inherit pkgs inputs outputs users username;
+          inherit system pkgs inputs outputs users username;
           host = "lorinand";
         };
       };
