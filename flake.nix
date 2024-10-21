@@ -44,7 +44,7 @@
     };
 
     users = {
-      lothlorien = baseUser // {gitKey = "0xDE2B547B210A28A4Y";};
+      lothlorien = baseUser // {gitKey = "0xA944934B89700029";};
       lorinand = baseUser // {gitKey = "0xLORINAND_KEY";};
       mordor = baseUser // {gitKey = "0xMORDOR_KEY";};
       beleriand = baseUser // {gitKey = "0xBELERIAND_KEY";};
