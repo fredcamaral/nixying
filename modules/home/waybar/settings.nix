@@ -1,4 +1,8 @@
-{host, ...}: let
+{
+  host,
+  pkgs,
+  ...
+}: let
   custom = {
     font = "MonoLisa Nerd Font";
     font_size = "18px";
@@ -35,7 +39,7 @@ in {
     ];
     modules-right = [
       "cpu"
-      "temperature"
+      "custom/temperature"
       "memory"
       "disk"
       "pulseaudio"
@@ -44,6 +48,7 @@ in {
       "tray"
       "custom/notification"
       "clock"
+      "custom/user-host-label"
       "idle_inhibitor"
     ];
     clock = {
@@ -59,16 +64,18 @@ in {
       active-only = false;
       disable-scroll = true;
       format = "{icon}";
+      format-occupied = "<span color='${yellow}'>{}</span>";
       on-click = "activate";
+      all-outputs = false;
       format-icons = {
-        "1" = "1:Main";
-        "2" = "2:Nix";
-        "3" = "3:Work";
-        "4" = "4:Work";
-        "5" = "5:Docker";
-        "6" = "6:btop";
-        "7" = "7:Git";
-        "8" = "8:Others";
+        "1" = "1:zen";
+        "2" = "2:nix";
+        "3" = "3:work";
+        "4" = "4:work";
+        "5" = "5:utilz";
+        "6" = "6:others";
+        "7" = "7:utilz";
+        "8" = "8:others";
         "9" = "IX";
         "10" = "X";
         sort-by-number = true;
@@ -86,7 +93,7 @@ in {
       };
     };
     idle_inhibitor = {
-      format = "{icon}";
+      format = " {icon}";
       format-icons = {
         activated = "";
         deactivated = "";
@@ -112,11 +119,21 @@ in {
       max-length = 100;
     };
     "temperature" = {
-      thermal-zone = 2;
+      thermal-zone = 1;
       hwmon-path = "/sys/class/hwmon/hwmon2/temp1_input";
       critical-threshold = 80;
       format-critical = " {temperatureC}°C";
       format = " {temperatureC}°C";
+    };
+    "custom/temperature" = {
+      exec = "${pkgs.lm_sensors}/bin/sensors -j coretemp-isa-0000 | ${pkgs.jq}/bin/jq '.[\"coretemp-isa-0000\"][\"Package id 0\"].temp1_input | floor'";
+      format = " {}°C";
+      interval = 1;
+    };
+    "custom/user-host-label" = {
+      exec = "${pkgs.coreutils}/bin/echo \"$(${pkgs.coreutils}/bin/whoami)@$(${pkgs.hostname}/bin/hostname)\"";
+      format = "{}";
+      interval = "once";
     };
     network = {
       format-wifi = "<span foreground='${magenta}'> </span> {signalStrength}%";

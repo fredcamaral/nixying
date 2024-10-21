@@ -73,7 +73,7 @@
       master = {
         new_on_top = false;
         orientation = "center";
-        mfact = 0.46;
+        mfact = 0.50;
       };
 
       decoration = {
@@ -271,6 +271,11 @@
 
       # windowrulev2
       windowrulev2 = [
+        # "pin, class:^(zen-alpha)$"
+        # "float, class:^(zen-alpha)$"
+        # "workspace 2, class:^(zen-alpha)$, move 0"
+        # "workspace 3, class:^(zen-alpha)$, move 0"
+
         "float, title:^(Picture-in-Picture)$"
         "opacity 1.0 override 1.0 override, title:^(Picture-in-Picture)$"
         "pin, title:^(Picture-in-Picture)$"
@@ -341,7 +346,7 @@
         workspace=8,monitor:DP-3
 
         xwayland {
-          force_zero_scaling = true
+          force_zero_scaling = false
         }
       ''
       else if hostMonitor == "mordor"
@@ -356,12 +361,29 @@
         workspace=4,monitor:eDP-1
 
         xwayland {
-          force_zero_scaling = true
+          force_zero_scaling = false
         }
       ''
       else ''
         # Default configuration if hostname doesn't match
+        monitor=DP-1,5120x1440@120,0x0,1
+        monitor=DP-2,2560x1440@60,0x-1440,1
+        monitor=DP-3,2560x1440@60,2560x-1440,1
 
+        workspace=1,monitor:DP-1
+        workspace=2,monitor:DP-1
+        workspace=3,monitor:DP-1
+        workspace=4,monitor:DP-1
+
+        workspace=5,monitor:DP-2
+        workspace=6,monitor:DP-2
+
+        workspace=7,monitor:DP-3
+        workspace=8,monitor:DP-3
+
+        xwayland {
+          force_zero_scaling = false
+        }
       '';
   };
 }
