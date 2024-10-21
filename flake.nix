@@ -87,10 +87,32 @@
       hosts;
 
     homeConfigurations = {
-      "${username}@lothlorien" = mkHome (commonArgs // {users.${username} = users.lothlorien;});
-      "${username}@lorinand" = mkHome (commonArgs // {users.${username} = users.lorinand;});
-      "${username}@mordor" = mkHome (commonArgs // {users.${username} = users.mordor;});
-      "${username}@beleriand" = mkHome (commonArgs // {users.${username} = users.beleriand;});
+      "${username}@lothlorien" = mkHome (commonArgs
+        // {
+          inherit username;
+          users.${username} = users.lothlorien;
+          hostname = "lothlorien";
+        });
+      "${username}@lorinand" = mkHome (commonArgs
+        // {
+          inherit username;
+          users.${username} = users.lorinand;
+
+          hostname = "lorinand";
+        });
+      "${username}@mordor" = mkHome (commonArgs
+        // {
+          inherit username;
+          users.${username} = users.mordor;
+
+          hostname = "mordor";
+        });
+      "${username}@beleriand" = mkHome (commonArgs
+        // {
+          inherit username;
+          users.${username} = users.beleriand;
+          hostname = "beleriand";
+        });
     };
   };
 }
