@@ -60,38 +60,6 @@ in {
       tooltip-format = "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>";
       format-alt = "  {:%d/%m}";
     };
-    "hyprland/workspaces" = {
-      active-only = false;
-      disable-scroll = true;
-      format = "{icon}";
-      format-occupied = "<span color='${yellow}'>{}</span>";
-      on-click = "activate";
-      all-outputs = false;
-      format-icons = {
-        "1" = "1:zen";
-        "2" = "2:nix";
-        "3" = "3:work";
-        "4" = "4:work";
-        "5" = "5:utilz";
-        "6" = "6:others";
-        "7" = "7:utilz";
-        "8" = "8:others";
-        "9" = "IX";
-        "10" = "X";
-        sort-by-number = true;
-      };
-      persistent-workspaces = {
-        "1" = [];
-        "2" = [];
-        "3" = [];
-        "4" = [];
-        "5" = [];
-        "6" = [];
-        "7" = [];
-        "8" = [];
-        # "9" = [];
-      };
-    };
     idle_inhibitor = {
       format = " {icon}";
       format-icons = {
