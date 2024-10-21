@@ -25,7 +25,6 @@
     ./go.nix
     ./gpg.nix
     ./lazygit.nix
-    ./spicetify.nix
     ./tmux.nix
     ./zoom.nix
     ./bat.nix # better cat command

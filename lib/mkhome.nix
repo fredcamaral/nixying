@@ -12,9 +12,11 @@ inputs.home-manager.lib.homeManagerConfiguration {
   modules = [
     ../modules/home/home.nix
     inputs.stylix.homeManagerModules.stylix
+    inputs.hyprland.homeManagerModules.default
+    inputs.nix-index-database.hmModules.nix-index
   ];
   extraSpecialArgs = {
-    inherit inputs outputs username;
+    inherit inputs outputs username system;
     userConfig = users.${username};
   };
 }

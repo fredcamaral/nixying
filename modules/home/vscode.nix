@@ -36,10 +36,11 @@
       "breadcrumbs.enabled" = true; # Enable breadcrumbs
       "editor.renderControlCharacters" = false; # Disable control characters
       "editor.mouseWheelZoom" = true; # Enable mouse wheel zoom
-      "editor.inlineSuggest.suppressSuggestions" = true; # Enable inline suggestions
+      "editor.inlineSuggest.suppressSuggestions" = false; # Enable inline suggestions
       "cody.chat.defaultLocation" = "sidebar"; #  Enable chat in editor
       "makefile.configureOnOpen" = true;
       "git.autofetch" = true;
+      "cody.autocomplete.completeSuggestWidgetSelection" = false;
     };
 
     extensions = with pkgs.vscode-extensions;
