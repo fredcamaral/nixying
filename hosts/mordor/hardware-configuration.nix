@@ -27,7 +27,7 @@
   fileSystems = {
     "/" = {
       device = "/dev/disk/by-label/nix-root";
-      fsType = "btrfs";
+      fsType = "ext4";
     };
     "/boot" = {
       device = "/dev/disk/by-label/nix-boot";
@@ -36,7 +36,7 @@
     };
     "/home" = {
       device = "/dev/disk/by-label/nix-home";
-      fsType = "btrfs";
+      fsType = "ext4";
     };
   };
 
