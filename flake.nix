@@ -29,13 +29,14 @@
   } @ inputs: let
     inherit (self) outputs;
     username = "fredamaral";
-    mkSystem = import ./lib/mksystem.nix;
-    mkHome = import ./lib/mkhome.nix;
     system = "x86_64-linux";
     pkgs = import nixpkgs {
       inherit system;
       config.allowUnfree = true;
     };
+
+    mkSystem = import ./lib/mksystem.nix;
+    mkHome = import ./lib/mkhome.nix;
 
     baseUser = {
       email = "fred@fredamaral.com.br";
@@ -43,16 +44,17 @@
       name = username;
     };
 
-    users = {
-      lothlorien = baseUser // {gitKey = "0xA944934B89700029";};
-      lorinand = baseUser // {gitKey = "0xLORINAND_KEY";};
-      mordor = baseUser // {gitKey = "0xMORDOR_KEY";};
-      beleriand = baseUser // {gitKey = "0xBELERIAND_KEY";};
-    };
+    users =
+      builtins.mapAttrs
+      (name: gitKey: baseUser // {inherit gitKey;})
+      {
+        lothlorien = "0xA944934B89700029";
+        lorinand = "0xLORINAND_KEY";
+        mordor = "0xMORDOR_KEY";
+        beleriand = "0xBELERIAND_KEY";
+      };
 
-    commonArgs = {
-      inherit system pkgs inputs outputs username;
-    };
+    commonArgs = {inherit system pkgs inputs outputs username;};
 
     mkConfig = {
       hostModule,
@@ -63,44 +65,54 @@
       mkSystem (commonArgs
         // {
           inherit hostModule extraModules;
-          users = {${username} = users.${hostname};};
+          users.${username} = users.${hostname};
         });
+
+    hosts = {
+      lothlorien = {extraModules = with hardware.nixosModules; [common-cpu-intel common-gpu-amd common-hidpi];};
+      lorinand = {extraModules = with hardware.nixosModules; [lenovo-thinkpad-p1 common-hidpi];};
+      mordor = {extraModules = with hardware.nixosModules; [lenovo-thinkpad-x1-12th-gen common-hidpi];};
+      beleriand = {};
+    };
   in {
     formatter.${system} = pkgs.alejandra;
 
-    nixosConfigurations = {
-      lothlorien = mkConfig {
-        hostModule = ./hosts/lothlorien;
-        extraModules = with hardware.nixosModules; [
-          common-cpu-intel
-          common-gpu-amd
-          common-hidpi
-        ];
-      };
-      lorinand = mkConfig {
-        hostModule = ./hosts/lorinand;
-        extraModules = with hardware.nixosModules; [
-          lenovo-thinkpad-p1
-          common-hidpi
-        ];
-      };
-      mordor = mkConfig {
-        hostModule = ./hosts/mordor;
-        extraModules = with hardware.nixosModules; [
-          lenovo-thinkpad-x1-12th-gen
-          common-hidpi
-        ];
-      };
-      beleriand = mkConfig {
-        hostModule = ./hosts/beleriand;
-      };
-    };
+    nixosConfigurations =
+      builtins.mapAttrs
+      (name: value:
+        mkConfig {
+          hostModule = ./hosts/${name};
+          extraModules = value.extraModules or [];
+        })
+      hosts;
 
     homeConfigurations = {
-      "${username}@lothlorien" = mkHome (commonArgs // {users.${username} = users.lothlorien;});
-      "${username}@lorinand" = mkHome (commonArgs // {users.${username} = users.lorinand;});
-      "${username}@mordor" = mkHome (commonArgs // {users.${username} = users.mordor;});
-      "${username}@beleriand" = mkHome (commonArgs // {users.${username} = users.beleriand;});
+      "${username}@lothlorien" = mkHome (commonArgs
+        // {
+          inherit username;
+          users.${username} = users.lothlorien;
+          hostname = "lothlorien";
+        });
+      "${username}@lorinand" = mkHome (commonArgs
+        // {
+          inherit username;
+          users.${username} = users.lorinand;
+
+          hostname = "lorinand";
+        });
+      "${username}@mordor" = mkHome (commonArgs
+        // {
+          inherit username;
+          users.${username} = users.mordor;
+
+          hostname = "mordor";
+        });
+      "${username}@beleriand" = mkHome (commonArgs
+        // {
+          inherit username;
+          users.${username} = users.beleriand;
+          hostname = "beleriand";
+        });
     };
   };
 }

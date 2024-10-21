@@ -5,6 +5,7 @@
   pkgs,
   users,
   username,
+  hostname,
   ...
 }:
 inputs.home-manager.lib.homeManagerConfiguration {
@@ -14,6 +15,8 @@ inputs.home-manager.lib.homeManagerConfiguration {
     inputs.stylix.homeManagerModules.stylix
     inputs.hyprland.homeManagerModules.default
     inputs.nix-index-database.hmModules.nix-index
+
+    ../modules/home/host-specifics/${hostname}.nix
   ];
   extraSpecialArgs = {
     inherit inputs outputs username system;
