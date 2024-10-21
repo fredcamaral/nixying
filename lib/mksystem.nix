@@ -16,11 +16,13 @@ inputs.nixpkgs.lib.nixosSystem {
       hostModule
       inputs.stylix.nixosModules.stylix
       inputs.agenix.nixosModules.default
+      inputs.home-manager.nixosModules.home-manager
     ]
     ++ extraModules;
   specialArgs = {
     inherit inputs outputs username;
     host = builtins.baseNameOf hostModule;
     userConfig = users.${username};
+    hardware = inputs.hardware.nixosModules;
   };
 }

@@ -8,7 +8,6 @@
     ./config.nix
     ./hyprlock.nix
     ./variables.nix
-    inputs.hyprland.homeManagerModules.default
   ];
 
   # List of Hyprland specific packages

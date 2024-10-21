@@ -3,29 +3,21 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     home-manager.url = "github:nix-community/home-manager";
-
+    hardware.url = "github:NixOS/nixos-hardware";
     hyprland = {
       url = "github:hyprwm/hyprland";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     hypr-contrib.url = "github:hyprwm/contrib";
     hyprpicker.url = "github:hyprwm/hyprpicker";
-
     nix-index-database = {
       url = "github:Mic92/nix-index-database";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
     alejandra.url = "github:kamadorueda/alejandra";
     agenix.url = "github:ryantm/agenix";
     stylix.url = "github:danth/stylix";
-    hardware.url = "github:NixOS/nixos-hardware";
     zen-browser.url = "path:flakes/zen-browser";
-    catppuccin.url = "github:catppuccin/nix";
-    spicetify-nix = {
-      url = "github:Gerg-L/spicetify-nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
   outputs = {
@@ -39,72 +31,76 @@
     username = "fredamaral";
     mkSystem = import ./lib/mksystem.nix;
     mkHome = import ./lib/mkhome.nix;
-    users = {
-      fredamaral = {
-        email = "fred@fredamaral.com.br";
-        fullName = "Fred Amaral";
-        gitKey = "0xDE2B547B210A28A4";
-        name = "fredamaral";
-      };
-    };
     system = "x86_64-linux";
     pkgs = import nixpkgs {
       inherit system;
       config.allowUnfree = true;
     };
+
+    baseUser = {
+      email = "fred@fredamaral.com.br";
+      fullName = "Fred Amaral";
+      name = username;
+    };
+
+    users = {
+      lothlorien = baseUser // {gitKey = "0xDE2B547B210A28A4Y";};
+      lorinand = baseUser // {gitKey = "0xLORINAND_KEY";};
+      mordor = baseUser // {gitKey = "0xMORDOR_KEY";};
+      beleriand = baseUser // {gitKey = "0xBELERIAND_KEY";};
+    };
+
+    commonArgs = {
+      inherit system pkgs inputs outputs username;
+    };
+
+    mkConfig = {
+      hostModule,
+      extraModules ? [],
+    }: let
+      hostname = builtins.baseNameOf hostModule;
+    in
+      mkSystem (commonArgs
+        // {
+          inherit hostModule extraModules;
+          users = {${username} = users.${hostname};};
+        });
   in {
     formatter.${system} = pkgs.alejandra;
 
     nixosConfigurations = {
-      lothlorien = mkSystem {
-        inherit system pkgs inputs outputs users username;
+      lothlorien = mkConfig {
         hostModule = ./hosts/lothlorien;
-        extraModules = [
-          inputs.hardware.nixosModules.common-cpu-intel
-          inputs.hardware.nixosModules.common-gpu-amd
-          inputs.hardware.nixosModules.common-hidpi
+        extraModules = with hardware.nixosModules; [
+          common-cpu-intel
+          common-gpu-amd
+          common-hidpi
         ];
       };
-
-      lorinand = mkSystem {
-        inherit system pkgs inputs outputs users username;
+      lorinand = mkConfig {
         hostModule = ./hosts/lorinand;
-        extraModules = [
-          inputs.hardware.nixosModules.lenovo-thinkpad-p1
-          inputs.hardware.nixosModules.common-hidpi
+        extraModules = with hardware.nixosModules; [
+          lenovo-thinkpad-p1
+          common-hidpi
         ];
       };
-
-      mordor = mkSystem {
-        inherit system pkgs inputs outputs users username;
+      mordor = mkConfig {
         hostModule = ./hosts/mordor;
-        extraModules = [
-          inputs.hardware.nixosModules.lenovo-thinkpad-x1-12th-gen
-          inputs.hardware.nixosModules.common-hidpi
+        extraModules = with hardware.nixosModules; [
+          lenovo-thinkpad-x1-12th-gen
+          common-hidpi
         ];
       };
-
-      beleriand = mkSystem {
-        inherit system pkgs inputs outputs users username;
+      beleriand = mkConfig {
         hostModule = ./hosts/beleriand;
-        extraModules = [];
       };
     };
 
-    homeConfigurations =
-      builtins.mapAttrs
-      (hostname: nixosConfig:
-        mkHome {
-          pkgs = nixosConfig.pkgs;
-          inherit system inputs outputs users username;
-          host = hostname;
-        })
-      self.nixosConfigurations
-      // {
-        "${username}" = mkHome {
-          inherit system pkgs inputs outputs users username;
-          host = "lorinand";
-        };
-      };
+    homeConfigurations = {
+      "${username}@lothlorien" = mkHome (commonArgs // {users.${username} = users.lothlorien;});
+      "${username}@lorinand" = mkHome (commonArgs // {users.${username} = users.lorinand;});
+      "${username}@mordor" = mkHome (commonArgs // {users.${username} = users.mordor;});
+      "${username}@beleriand" = mkHome (commonArgs // {users.${username} = users.beleriand;});
+    };
   };
 }

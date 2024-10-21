@@ -78,6 +78,9 @@
       la = "ls -la";
       tree = "eza --icons --tree --group-directories-first";
 
+      lg = "lazygit";
+      ld = "lazydocker";
+
       # ZFS
       import-pools = "sudo zpool import -a";
 
