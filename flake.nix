@@ -71,6 +71,15 @@
         ];
       };
 
+      mordor = mkSystem {
+        inherit system pkgs inputs outputs users username;
+        hostModule = ./hosts/mordor;
+        extraModules = [
+          inputs.hardware.nixosModules.lenovo-thinkpad-x1-12th-gen
+          inputs.hardware.nixosModules.common-hidpi
+        ];
+      };
+
       beleriand = mkSystem {
         inherit system pkgs inputs outputs users username;
         hostModule = ./hosts/beleriand;
