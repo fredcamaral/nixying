@@ -26,7 +26,7 @@
     '';
   };
 
-  programs.waybar.settings.mainBar = with custom; {
+  programs.waybar.settings.mainBar = {
     "hyprland/workspaces" = {
       active-only = false;
       disable-scroll = true;
