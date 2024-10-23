@@ -5,7 +5,7 @@
 }: {
   wayland.windowManager.hyprland = {
     extraConfig = ''
-      monitor=eDP-1,2880x1800@120,0x0,1
+      monitor=eDP-1,3840x2400@60,0x0,1.5
 
       xwayland {
         force_zero_scaling = false
