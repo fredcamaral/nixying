@@ -42,9 +42,9 @@
     };
 
     # Of course, we can still use comfy vimscript:
-    extraConfigVim = builtins.readFile ./init.vim;
+    # extraConfigVim = builtins.readFile ./init.vim;
     # Or lua!
-    extraConfigLua = builtins.readFile ./init.lua;
+    # extraConfigLua = builtins.readFile ./init.lua;
 
     # One of the big advantages of NixVim is how it provides modules for
     # popular vim plugins
@@ -56,7 +56,7 @@
 
         # This is optional - it will default to your enabled colorscheme
         settings = {
-          colorscheme = "wombat";
+          # colorscheme = "wombat";
 
           # This is one of lightline's example configurations
           active = {
@@ -86,10 +86,10 @@
     };
 
     # There is a separate namespace for colorschemes:
-    colorschemes.gruvbox.enable = true;
+    # colorschemes.gruvbox.enable = true;
 
     # What about plugins not available as a module?
     # Use extraPlugins:
-    extraPlugins = with pkgs.vimPlugins; [vim-toml];
+    # extraPlugins = with pkgs.vimPlugins; [vim-toml];
   };
 }
