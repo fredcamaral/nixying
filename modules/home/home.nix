@@ -27,7 +27,6 @@
     ./lazygit.nix
     ./tmux.nix
     ./zoom.nix
-    ./nixvim.nix
     ./bat.nix # better cat command
     ./btop.nix # resouces monitor
     ./cava.nix # audio visualizer
