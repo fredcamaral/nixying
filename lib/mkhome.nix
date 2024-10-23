@@ -15,6 +15,7 @@ inputs.home-manager.lib.homeManagerConfiguration {
     inputs.stylix.homeManagerModules.stylix
     inputs.hyprland.homeManagerModules.default
     inputs.nix-index-database.hmModules.nix-index
+    inputs.nixvim.homeManagerModules.nixvim
 
     ../modules/home/host-specifics/${hostname}.nix
   ];

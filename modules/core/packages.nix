@@ -97,7 +97,7 @@
 
     # Custom inputs
     inputs.alejandra.defaultPackage.${system}
-    # inputs.nixvim.packages.${system}.default
-    inputs.zen-browser.packages.${system}.specific
+    # inputs.nixvim.packages.${system}
+    # inputs.zen-browser.packages.${system}.specific
   ];
 }

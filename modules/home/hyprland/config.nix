@@ -308,6 +308,7 @@
         "float,class:^(confirmreset)$"
         "float,title:^(Open File)$"
         "float,title:^(Open Files)$"
+        "float,title:^(All Files)$"
         "float,title:^(File Upload)$"
         "float,title:^(Open Folder)$"
         "float,title:^(branchdialog)$"

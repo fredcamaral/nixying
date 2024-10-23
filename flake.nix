@@ -11,7 +11,8 @@
     alejandra.url = "github:kamadorueda/alejandra";
     agenix.url = "github:ryantm/agenix";
     stylix.url = "github:danth/stylix";
-    zen-browser.url = "path:flakes/zen-browser";
+    nixvim.url = "path:flakes/nixvim";
+    # zen-browser.url = "path:flakes/zen-browser";
   };
 
   outputs = {
