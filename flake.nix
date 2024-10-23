@@ -4,16 +4,10 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     home-manager.url = "github:nix-community/home-manager";
     hardware.url = "github:NixOS/nixos-hardware";
-    hyprland = {
-      url = "github:hyprwm/hyprland";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    hyprland.url = "github:hyprwm/hyprland?submodules=1";
     hypr-contrib.url = "github:hyprwm/contrib";
     hyprpicker.url = "github:hyprwm/hyprpicker";
-    nix-index-database = {
-      url = "github:Mic92/nix-index-database";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    nix-index-database.url = "github:Mic92/nix-index-database";
     alejandra.url = "github:kamadorueda/alejandra";
     agenix.url = "github:ryantm/agenix";
     stylix.url = "github:danth/stylix";
@@ -48,7 +42,7 @@
       builtins.mapAttrs
       (name: gitKey: baseUser // {inherit gitKey;})
       {
-        lothlorien = "0xA944934B89700029";
+        lothlorien = "41B4629EFD929A74";
         lorinand = "0xLORINAND_KEY";
         mordor = "0xMORDOR_KEY";
         beleriand = "0xBELERIAND_KEY";

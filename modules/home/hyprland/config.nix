@@ -277,6 +277,7 @@
         # "workspace 3, class:^(zen-alpha)$, move 0"
 
         "float, title:^(Picture-in-Picture)$"
+        "float, title:^(Sign in - Google Accounts)$"
         "opacity 1.0 override 1.0 override, title:^(Picture-in-Picture)$"
         "pin, title:^(Picture-in-Picture)$"
         "opacity 1.0 override 1.0 override, title:^(.*imv.*)$"
