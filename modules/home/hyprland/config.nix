@@ -17,6 +17,35 @@
         "waybar &"
         "swaync &"
         "hyprlock"
+
+        # Workspace 1
+        "kitty --class 'wp1' --working-directory ~"
+        "google-chrome --class 'wp1'"
+        "kitty --class 'wp1' --working-directory ~"
+
+        # Workspace 2
+        "kitty --class 'wp2' --working-directory ~/repos/nixying"
+        "code --class 'wp2' ~/repos/nixying"
+        "google-chrome --class 'wp2'"
+
+        # Workspace 3
+        "kitty --class 'wp3' --working-directory ~/repos/lerian/midaz"
+        "code --class 'wp3' ~/repos/lerian/midaz"
+        "postman --class 'wp3'"
+
+        # Workspace 4
+        "kitty --class 'wp4' --working-directory ~/repos/codecrafters/codecrafters-redis-go"
+        "code --class 'wp4' ~/repos/codecrafters/codecrafters-redis-go"
+        "google-chrome --class 'wp4' https://app.codecrafters.io/courses/redis"
+
+        # Workspace 5
+        "kitty --class 'wp5' -e btop"
+        "kitty --class 'wp5' -e lazydocker"
+
+        # Workspace 7
+        "kitty --class 'wp7' -e lazygit ~/repos/lerian/midaz"
+        "kitty --class 'wp7' -e lazygit ~/repos/nixying"
+        "kitty --class 'wp7' -e lazygit ~/repos/codecrafters/codecrafters-redis-go"
       ];
 
       input = {
