@@ -14,9 +14,9 @@ inputs.nixpkgs.lib.nixosSystem {
   modules =
     [
       hostModule
+
       inputs.stylix.nixosModules.stylix
       inputs.agenix.nixosModules.default
-      inputs.nixvim.nixosModules.nixvim
       inputs.home-manager.nixosModules.home-manager
     ]
     ++ extraModules;
