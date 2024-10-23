@@ -42,7 +42,7 @@
     ./packages.nix # other packages
     ./rofi.nix # launcher
     ./scripts/scripts.nix # personal scripts
-    ./vscode.nix # vscode
+    # ./vscode.nix # vscode
     ./waybar # status bar
     ./xdg-mimes.nix # xdg config
     ./zsh.nix # shell

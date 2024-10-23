@@ -8,7 +8,8 @@
     woeusb # USB image writer
     google-chrome # Google Chrome web browser
     cifs-utils # Utilities for managing CIFS/SMB file systems
-    nodejs_22
+    libsForQt5.partitionmanager
+    vscode
 
     # System utilities
     age # Simple, modern file encryption tool
@@ -54,7 +55,7 @@
 
     # Development tools
     devenv # Development environment management tool for Nix
-    electron # Framework for building cross-platform desktop applications with web technologies
+    electron_32 # Framework for building cross-platform desktop applications with web technologies
     nix-direnv # Fast loader and flake-aware nix-shell replacement for direnv
     nix-tree # Interactively browse dependency graphs of Nix derivations
     postman # API development environment
