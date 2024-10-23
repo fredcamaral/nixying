@@ -271,11 +271,6 @@
 
       # windowrulev2
       windowrulev2 = [
-        # "pin, class:^(zen-alpha)$"
-        # "float, class:^(zen-alpha)$"
-        # "workspace 2, class:^(zen-alpha)$, move 0"
-        # "workspace 3, class:^(zen-alpha)$, move 0"
-
         "float, title:^(Picture-in-Picture)$"
         "float, title:^(Sign in - Google Accounts)$"
         "opacity 1.0 override 1.0 override, title:^(Picture-in-Picture)$"
@@ -312,6 +307,7 @@
         "float,class:^(error)$"
         "float,class:^(confirmreset)$"
         "float,title:^(Open File)$"
+        "float,title:^(Open Files)$"
         "float,title:^(File Upload)$"
         "float,title:^(Open Folder)$"
         "float,title:^(branchdialog)$"
