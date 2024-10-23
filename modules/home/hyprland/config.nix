@@ -300,6 +300,15 @@
 
       # windowrulev2
       windowrulev2 = [
+        "workspace 1, class:^(wp1)$"
+        "workspace 2, class:^(wp2)$"
+        "workspace 3, class:^(wp3)$"
+        "workspace 4, class:^(wp4)$"
+        "workspace 5, class:^(wp5)$"
+        "workspace 6, class:^(wp6)$"
+        "workspace 7, class:^(wp7)$"
+        "workspace 8, class:^(wp8)$"
+
         "float, title:^(Picture-in-Picture)$"
         "float, title:^(Sign in - Google Accounts)$"
         "opacity 1.0 override 1.0 override, title:^(Picture-in-Picture)$"
