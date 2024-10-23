@@ -28,6 +28,7 @@
     ./wayland.nix
     ./virtualization.nix
     ./settings.nix
+    ./nixvim.nix
     # ./secrets
   ];
 }
