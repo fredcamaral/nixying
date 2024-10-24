@@ -43,7 +43,7 @@
       builtins.mapAttrs
       (name: gitKey: baseUser // {inherit gitKey;})
       {
-        lothlorien = "41B4629EFD929A74";
+        lothlorien = "0x2180E82A7A49F35E";
         lorinand = "0xLORINAND_KEY";
         mordor = "0xB310AF30B122F13B";
         beleriand = "0xBELERIAND_KEY";

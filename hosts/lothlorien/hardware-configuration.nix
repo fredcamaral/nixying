@@ -17,27 +17,22 @@
     initrd.kernelModules = [];
     kernelModules = ["kvm-intel" "intel_pstate" "amdgpu" "msr"];
     extraModulePackages = [];
-    supportedFilesystems = ["ext4" "btrfs" "vfat" "zfs" "exfat"];
+    supportedFilesystems = ["ext4" "vfat" "zfs"];
     kernelParams = ["intel_iommu=on" "amd_iommu=on" "iommu=pt"];
   };
 
   fileSystems."/" = {
-    device = "/dev/disk/by-uuid/17b6d18e-c2a6-4c5f-94e3-8873c3129b7b";
+    device = "/dev/disk/by-label/nixos-root";
     fsType = "ext4";
   };
 
-  # fileSystems."/media/bridge" = {
-  #   device = "/dev/disk/by-uuid/6dbcbab3-b31d-4c6c-a830-c24b06ad290e";
-  #   fsType = "ext4";
-  # };
-
   fileSystems."/home" = {
-    device = "/dev/disk/by-uuid/6858291a-3bd0-41e7-b6e3-4d8c2246f81d";
-    fsType = "btrfs";
+    device = "/dev/disk/by-label/nixos-home";
+    fsType = "ext4";
   };
 
   fileSystems."/boot" = {
-    device = "/dev/disk/by-uuid/6CD2-5321";
+    device = "/dev/disk/by-label/nixos-boot";
     fsType = "vfat";
     options = ["fmask=0022" "dmask=0022"];
   };
