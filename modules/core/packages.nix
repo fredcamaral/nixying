@@ -11,6 +11,9 @@
     libsForQt5.partitionmanager
     vscode
     mpv # Media player
+    ntfs3g
+    wget
+    parted
 
     # System utilities
     age # Simple, modern file encryption tool
