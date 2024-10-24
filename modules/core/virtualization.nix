@@ -25,7 +25,7 @@
   # Manage the virtualisation services
   virtualisation = {
     libvirtd = {
-      enable = true;
+      enable = false;
       qemu = {
         package = pkgs.qemu_full;
         runAsRoot = false;
