@@ -10,6 +10,7 @@
     cifs-utils # Utilities for managing CIFS/SMB file systems
     libsForQt5.partitionmanager
     vscode
+    mpv # Media player
 
     # System utilities
     age # Simple, modern file encryption tool

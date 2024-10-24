@@ -45,7 +45,7 @@
       {
         lothlorien = "41B4629EFD929A74";
         lorinand = "0xLORINAND_KEY";
-        mordor = "0xMORDOR_KEY";
+        mordor = "0xB310AF30B122F13B";
         beleriand = "0xBELERIAND_KEY";
       };
 

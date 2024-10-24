@@ -26,7 +26,7 @@ __license__ = "GPL-2.0 license"
 import os
 import subprocess
 
-repo_directory = os.path.expanduser("~/Documents/repositories")
+repo_directory = os.path.expanduser("~/repos")
 
 
 def is_git_directory(directory):
