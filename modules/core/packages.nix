@@ -14,6 +14,7 @@
     ntfs3g
     wget
     parted
+    obsidian # Markdown editor
 
     # System utilities
     age # Simple, modern file encryption tool

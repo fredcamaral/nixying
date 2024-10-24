@@ -15,10 +15,10 @@
   boot = {
     initrd.availableKernelModules = ["xhci_pci" "ahci" "nvme" "usb_storage" "usbhid" "sd_mod" "usbhid" "sr_mod"];
     initrd.kernelModules = [];
-    kernelModules = ["kvm-intel" "intel_pstate" "amdgpu" "msr"];
+    kernelModules = ["kvm-intel" "intel_pstate" "amdgpu" "nvidia" "msr"];
     extraModulePackages = [];
-    supportedFilesystems = ["ext4" "vfat" "zfs"];
-    kernelParams = ["intel_iommu=on" "amd_iommu=on" "iommu=pt"];
+    supportedFilesystems = ["ext4" "vfat" "ntfs" "zfs"];
+    kernelParams = ["intel_iommu=on" "amd_iommu=on" "nvidia_iommu=on" "iommu=pt"];
   };
 
   fileSystems."/" = {
